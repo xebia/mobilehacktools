@@ -1,0 +1,24 @@
+---
+
+- name: run the playbook tasks on the localhost
+  hosts: 127.0.0.1
+  connection: local
+  
+  vars_files:
+   - default.config.yml
+  
+  roles:
+    - role: geerlingguy.homebrew
+      tags: ['homebrew']
+    # - role: geerlingguy.dotfiles
+    #   when: configure_dotfiles
+    #   tags: ['dotfiles']
+  tasks:
+
+  - include_tasks: tasks/ansible-setup.yml
+
+  - name: print out the hostname of target
+    command: hostname
+
+  - name: install necessary packages with homebrew
+    command: 

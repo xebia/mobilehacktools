@@ -1,0 +1,57 @@
+homebrew_installed_packages:
+  # - ansible # Installed via Pip.
+  - autoconf
+  - apktool
+  - bash-completion
+  - dependency-check
+  - dex2jar
+  - doxygen
+  - gettext
+  - gifsicle
+  - git
+  - go
+  - gpg
+  - hub
+  - python2
+  - python3
+  - httpie
+  - testssl.sh
+  - mcrypt
+  - nmap
+  - openssl
+  - pv
+  - wget
+  - wrk
+  
+  - java8
+
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - android-studio
+  - burp-suite
+  - chromedriver
+  - docker
+  - dropbox
+  - firefox
+  - google-chrome
+  - handbrake
+  - jd-gui
+  - licecap
+  - limechat
+  - macvim
+  - owasp-zap
+  - packer
+  - sequel-pro
+  - skitch
+  - slack
+  - sublime-text
+  - transmit
+  - vagrant
+  - virtualbox
+
+  
+

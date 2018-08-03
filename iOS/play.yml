@@ -1,0 +1,12 @@
+---
+
+- name: run the playbook tasks on the localhost
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: Install list of packages
+      homebrew: name={{item}} state=latest
+      with_items:
+        - ios-deploy 
+        - colordiff
+        - sqlite3
