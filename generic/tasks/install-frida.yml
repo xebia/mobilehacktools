@@ -1,0 +1,21 @@
+# file: install-frida.yml
+# Used to install Frida : https://www.frida.re/docs/installation/
+# Steps to take:
+# pip install frida-tools
+
+- name: check to see if Frida is already installed
+  command: "frida -help"
+  ignore_errors: true
+  register: frida_is_installed
+  changed_when: false
+
+- block:
+
+    - name: install frida
+      command: "pip install frida-tools"
+
+    - name: Remind people of further installation
+      debug:
+        msg: "See https://www.frida.re/docs/installation/ for folloup on frida"
+
+  when: frida_is_installed.rc != 0

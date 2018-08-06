@@ -1,0 +1,46 @@
+# file: install-mobsf.yml
+# Used to install MobSF : https://github.com/MobSF/Mobile-Security-Framework-MobSF
+# Steps to take:
+#- get the docker version up and running
+#- git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF
+#- cd into it and install it
+#- make the installed version available in path
+
+- name: check to see if mobsf is already installed
+  command: "mobsf"
+  ignore_errors: true
+  register: mobsf_is_installed
+  changed_when: false
+
+- block:
+
+  - name: Get mobsf docker container
+    command: "docker pull opensecurity/mobile-security-framework-mobsf"
+
+  - name: download mobsf git
+    get_url: url=https://github.com/MobSF/Mobile-Security-Framework-MobSF/archive/v0.9.5.5.zip  dest=/tmp
+
+    # - name: download nathan
+    #   get_url: url=https://github.com/mseclab/nathan/archive/master.zip  dest=/tmp
+    #
+    # - name: Unzip Nathan
+    #   unarchive:
+    #     src: https://github.com/mseclab/nathan/archive/master.zip
+    #     dest: /Applications
+    #     remote_src: yes
+    #
+    # - name: Rename nathan
+    #   command: mv /Applications/nathan-master /Applications/nathan
+    #
+    # - name: Initialize Nathan
+    #   command: "cd /Applications/nathan ; ./nathan.py init"
+    #
+    # - name : Get Nathan on path
+    #   copy:
+    #     dest: /etc/profile.d/custom-path.sh
+    #     content: 'PATH=$PATH:{{ /Applications/nathan/ }}'
+    #
+    # - name: delete master.zip
+    #   file: state=absent path=/tmp/nathan-master.zip
+
+  when: mobsf_is_installed.rc != 0

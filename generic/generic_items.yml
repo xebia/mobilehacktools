@@ -3,16 +3,17 @@
 - name: run the playbook tasks on the localhost
   hosts: 127.0.0.1
   connection: local
-  
+
   vars_files:
    - default.config.yml
-  
+
   roles:
     - role: geerlingguy.homebrew
       tags: ['homebrew']
-    # - role: geerlingguy.dotfiles
-    #   when: configure_dotfiles
-    #   tags: ['dotfiles']
+    - role: geerlingguy.mas
+      when: mas_installed_apps
+      tags: ['mas']
+
   tasks:
 
   - include_tasks: tasks/ansible-setup.yml
@@ -20,5 +21,17 @@
   - name: print out the hostname of target
     command: hostname
 
-  - name: install necessary packages with homebrew
-    command: 
+  - name: install pip, if necessary
+    include: tasks/install-pip.yml
+
+  - name: install drozer, if necessary
+    include: tasks/install-drozer.yml
+
+  - name: install frida tools, if necessary
+    include: tasks/install-frida.yml
+
+  - name: install Nathan, if necessary
+    include: tasks/install-nathan.yml
+
+  - name: install mobsf, if necessary
+    include: tasks/install-mobsf.yml

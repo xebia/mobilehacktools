@@ -1,0 +1,28 @@
+# file: install-nathan.yml
+# Used to install Nathan : https://github.com/mseclab/nathan
+# Steps to take:
+#- git downlaod https://github.com/mseclab/nathan
+#- cd into it and execute ./nathan.py init
+#- make sure it is in path
+
+- name: check to see if nathan is already installed
+  command: "/Applications/nathan/nathan-master/nathan.py -h"
+  ignore_errors: true
+  register: nathan_is_installed
+  changed_when: false
+
+- block:
+
+    - name: create directory
+      command: "mkdir /Applications/nathan"
+
+    - name: Unzip Nathan
+      unarchive:
+        src: https://github.com/mseclab/nathan/archive/master.zip
+        dest: /Applications/nathan/
+        remote_src: yes
+
+    - name: Initialize Nathan
+      command: "cd /Applications/nathan/nathan-master ; ./nathan.py init"
+
+  when: nathan_is_installed.rc != 0

@@ -8,7 +8,7 @@ if [ $? -eq 0 ]; then
 else
     echo "Installing brew"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    
+
 fi
 echo "Installing Ansible"
 brew list ansible|| brew install ansible || brew link --overwrite ansible
@@ -16,6 +16,7 @@ brew list ansible|| brew install ansible || brew link --overwrite ansible
 
 echo "installing necessary roles"
 ansible-galaxy install geerlingguy.homebrew
+ansible-galaxy install geerlingguy.mas
 # ansible-galaxy install geerlingguy.dotfiles
 
 
@@ -27,4 +28,3 @@ echo "run iOS toolchain book"
 
 
 echo "run Android toolchain book"
-

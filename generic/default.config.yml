@@ -11,27 +11,24 @@ homebrew_installed_packages:
   - git
   - go
   - gpg
-  - hub
+  - httpie
   - python2
   - python3
-  - httpie
-  - testssl.sh
+  - testssl
   - mcrypt
   - nmap
   - openssl
-  - pv
   - wget
-  - wrk
-  
-  - java8
+
 
 homebrew_taps:
   - homebrew/core
   - homebrew/cask
 
 homebrew_cask_appdir: /Applications
-homebrew_cask_apps:
+homebrew_cask_installed_apps:
   - android-studio
+  - atom
   - burp-suite
   - chromedriver
   - docker
@@ -39,19 +36,15 @@ homebrew_cask_apps:
   - firefox
   - google-chrome
   - handbrake
+  - java
   - jd-gui
   - licecap
-  - limechat
-  - macvim
   - owasp-zap
   - packer
   - sequel-pro
-  - skitch
   - slack
-  - sublime-text
-  - transmit
   - vagrant
   - virtualbox
 
-  
-
+mas_installed_apps:
+  - { id: 497799835, name: "Xcode (9.4.1)" }

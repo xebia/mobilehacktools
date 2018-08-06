@@ -1,0 +1,31 @@
+# file: install-drozer.yml
+# Used to install Drozer : https://labs.mwrinfosecurity.com/tools/drozer/
+# Steps to take:
+# pip install ninja2
+# download https://github.com/mwrlabs/drozer/releases/download/2.4.4/drozer-2.4.4-py2-none-any.whl
+# pip install drozer-2.4.4-py2-none-any.whl
+
+- name: check to see if drozer is already installed
+  command: "drozer"
+  ignore_errors: true
+  register: drozer_is_installed
+  changed_when: false
+
+- block:
+
+    - name: download drozer
+      get_url: url=https://github.com/mwrlabs/drozer/releases/download/2.4.4/drozer-2.4.4-py2-none-any.whl  dest=/tmp
+
+    - name: install ninja 2
+      command: "pip install ninja2"
+
+    - name: install drozer
+      command: "pip install /tmp/drozer-2.4.4-py2-none-any.whl"
+
+    - name: delete drozer-2.4.4-py2-none-any.whl
+      file: state=absent path=/tmp/drozer-2.4.4-py2-none-any.whl
+
+    - name: get the agent for drozer
+      get_url: url=https://github.com/mwrlabs/drozer/releases/download/2.3.4/drozer-agent-2.3.4.apk dest=~/Downloads
+
+  when: drozer_is_installed.rc != 0
