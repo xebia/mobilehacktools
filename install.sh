@@ -17,14 +17,15 @@ brew list ansible|| brew install ansible || brew link --overwrite ansible
 echo "installing necessary roles"
 ansible-galaxy install geerlingguy.homebrew
 ansible-galaxy install geerlingguy.mas
+ansible-galaxy install rvm_io.ruby
 # ansible-galaxy install geerlingguy.dotfiles
 
 
 echo "running toolchain for generic items"
 ansible-playbook -K ./generic/generic_items.yml
-# start with installing toolchain based on brew role!
 
 echo "run iOS toolchain book"
-
+ansible-playbook -K ./iOS/generic_items.yml
 
 echo "run Android toolchain book"
+ansible-playbook -K ./Android/generic_items.yml

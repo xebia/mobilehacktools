@@ -1,0 +1,26 @@
+# file: install-idb.yml
+# http://www.idbtool.com/installation/
+# Steps to take:
+#- install rvm
+#- brew install prefered modules
+#- brew install additional modules
+#- gem install idb
+
+- name: check to see if objection is already installed
+  command: "which idb"
+  ignore_errors: true
+  register: idb_is_installed
+  changed_when: false
+
+- block:
+
+
+    - name: additional installation of modules (3/3)
+      command: "brew install cartr/qt4/qt@4"
+
+
+    - name: install idbtool
+      command: "gem install idb"
+
+
+  when: idb_is_installed.rc != 0

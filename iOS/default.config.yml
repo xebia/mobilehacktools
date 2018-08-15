@@ -3,17 +3,11 @@ homebrew_installed_packages:
   - autoconf # general
   - bash-completion #general
   - dependency-check # general
-  - doxygen #general
   - gettext #general
-  - gifsicle #general
   - git #general
   - go #general
   - gpg #general
-  - httpie #general
-  - ideviceinstaller #used by appmon general
-  - libimobiledevice #used by appmon general
   - mcrypt #used by appmon
-  - nmap #general
   - node #used by appmon
   - python2 #general
   - python #python 3
@@ -34,17 +28,7 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_installed_apps:
   - atom
-  - burp-suite
-  - chromedriver
-  - docker
-  - dropbox
-  - firefox
-  - google-chrome
-  - handbrake
-  - java
-  - owasp-zap
-  - packer
-  - sequel-pro
-  - slack
-  - vagrant
-  - virtualbox
+
+
+mas_installed_apps:
+  - { id: 497799835, name: "Xcode (9.4.1)" } #ios

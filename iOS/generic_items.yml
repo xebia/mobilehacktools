@@ -10,6 +10,9 @@
   roles:
     - role: geerlingguy.homebrew
       tags: ['homebrew']
+    - role: geerlingguy.mas
+      when: mas_installed_apps
+      tags: ['mas']
 
   tasks:
 
@@ -21,15 +24,12 @@
   - name: install pip, if necessary
     include: tasks/install-pip.yml
 
-#general
-  - name: install frida tools, if necessary
-    include: tasks/install-frida.yml
-#general
-  - name: install mobsf, if necessary
-    include: tasks/install-mobsf.yml
-#General
-  - name: install appmon, if necessary
-    include: tasks/install-appmon.yml
-#general
-  - name: install objection, if necessary
-    include: tasks/install-objection.yml
+#ios
+  - name: install classdump, if necessary
+    include: tasks/install-classdump.yml
+#ios
+  - name: install itms, if necessary
+    include: tasks/install-itms.yml
+#ios
+  - name: install idb, if necessary
+    include: tasks/install-idb.yml

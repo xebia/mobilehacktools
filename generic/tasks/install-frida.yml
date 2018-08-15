@@ -12,10 +12,13 @@
 - block:
 
     - name: install frida
+      command: "pip install frida"
+
+    - name: install frida-tools
       command: "pip install frida-tools"
 
     - name: Remind people of further installation
       debug:
-        msg: "See https://www.frida.re/docs/installation/ for folloup on frida"
+        msg: "See https://www.frida.re/docs/installation/ for followup on frida for android and ios"
 
   when: frida_is_installed.rc != 0

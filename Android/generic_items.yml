@@ -21,15 +21,15 @@
   - name: install pip, if necessary
     include: tasks/install-pip.yml
 
-#general
-  - name: install frida tools, if necessary
-    include: tasks/install-frida.yml
-#general
-  - name: install mobsf, if necessary
-    include: tasks/install-mobsf.yml
-#General
-  - name: install appmon, if necessary
-    include: tasks/install-appmon.yml
-#general
-  - name: install objection, if necessary
-    include: tasks/install-objection.yml
+#android
+  - name: install drozer, if necessary
+    include: tasks/install-drozer.yml
+#Android
+  - name: install Nathan, if necessary
+    include: tasks/install-nathan.yml
+#Android
+  - name: install super analyzer, if necessary
+    include: tasks/install-super-analyzer.yml
+#Android
+  - name: install Qark, if necessary
+    include: tasks/install-qark.yml

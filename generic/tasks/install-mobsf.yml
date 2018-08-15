@@ -7,40 +7,31 @@
 #- make the installed version available in path
 
 - name: check to see if mobsf is already installed
-  command: "mobsf"
+  command: "cat /Applications/mobsf/Mobile-Security-Framework-MobSF-master/manage.py"
   ignore_errors: true
   register: mobsf_is_installed
   changed_when: false
 
 - block:
 
+  - name: Create folder
+    command: "mkdir /Applications/mobsf"
+
   - name: Get mobsf docker container
     command: "docker pull opensecurity/mobile-security-framework-mobsf"
 
-  - name: download mobsf git
-    get_url: url=https://github.com/MobSF/Mobile-Security-Framework-MobSF/archive/v0.9.5.5.zip  dest=/tmp
+  - name: Unzip Mobsf git
+    unarchive:
+      src: https://github.com/MobSF/Mobile-Security-Framework-MobSF/archive/master.zip
+      dest: /Applications/mobsf/
+      remote_src: yes
 
-    # - name: download nathan
-    #   get_url: url=https://github.com/mseclab/nathan/archive/master.zip  dest=/tmp
-    #
-    # - name: Unzip Nathan
-    #   unarchive:
-    #     src: https://github.com/mseclab/nathan/archive/master.zip
-    #     dest: /Applications
-    #     remote_src: yes
-    #
-    # - name: Rename nathan
-    #   command: mv /Applications/nathan-master /Applications/nathan
-    #
-    # - name: Initialize Nathan
-    #   command: "cd /Applications/nathan ; ./nathan.py init"
-    #
-    # - name : Get Nathan on path
-    #   copy:
-    #     dest: /etc/profile.d/custom-path.sh
-    #     content: 'PATH=$PATH:{{ /Applications/nathan/ }}'
-    #
-    # - name: delete master.zip
-    #   file: state=absent path=/tmp/nathan-master.zip
+  - name: install MobSF
+    shell: |
+      cd /Applications/mobsf/Mobile-Security-Framework-MobSF-master
+      pip3 install virtualenv
+      virtualenv -p python3 venv
+      source venv/bin/activate
+      pip3 install -r requirements.txt
 
   when: mobsf_is_installed.rc != 0

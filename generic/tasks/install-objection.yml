@@ -1,0 +1,17 @@
+# file: install-objection.yml
+# !https://github.com/sensepost/objection
+# Steps to take:
+#- pip3 install objection
+
+- name: check to see if objection is already installed
+  command: "objection --help"
+  ignore_errors: true
+  register: objection_is_installed
+  changed_when: false
+
+- block:
+
+    - name: install objection
+      command: "pip3 install objection"
+
+  when: objection_is_installed.rc != 0

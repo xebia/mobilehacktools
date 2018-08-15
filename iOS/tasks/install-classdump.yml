@@ -1,0 +1,27 @@
+# file: install-classdump.yml
+# Used to install Classdump : http://stevenygard.com/projects/class-dump/
+# Steps to take:
+# - copy classdump and deprotect to classdump folder
+# HVG!!
+
+
+
+- name: check to see if classdump is already installed
+  command: "/Applications/classdump/class-dump"
+  ignore_errors: true
+  register: classdump_is_installed
+  changed_when: false
+
+- block:
+
+    - name: create dir class-dump
+      command: "mkdir /Applications/classdump"
+
+    - name: copy class-dump and deprotect
+      copy:
+        src: ../resources/classdump/
+        dest: /Applications/classdump
+
+    - name: make class-dump executable
+      command: "chmod +x /Applications/classdump/class-dump"
+  when: classdump_is_installed.rc != 0

@@ -1,0 +1,29 @@
+# file: install-qark.yml
+# Used to install qark : https://github.com/linkedin/qark/tree/master
+# Steps to take:
+#- Download and extract into new directory
+#- Do a first testrun
+#pLEASE NOTE: v2 will be up soon hopefully, so we can update this!
+
+- name: check to see if Qark is already installed
+  command: "python /Applications/qark/qark-master/qark/qarkMain.py -h"
+  ignore_errors: true
+  register: qark_is_installed
+  changed_when: false
+
+- block:
+
+  - name: create directory
+    command: "mkdir /Applications/qark"
+
+  - name: Unzip qark
+    unarchive:
+      src: https://github.com/linkedin/qark/archive/master.zip
+      dest: /Applications/qark/
+      remote_src: yes
+
+  - name: do a first run
+    command: "python /Applications/qark/qark-master/qark/qarkMain.py -h"
+
+
+  when: qark_is_installed.rc != 0

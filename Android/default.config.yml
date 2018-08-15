@@ -1,8 +1,10 @@
 homebrew_installed_packages:
   # - ansible # Installed via Pip.
   - autoconf # general
+  - apktool # necessary for Android reverse engineering
   - bash-completion #general
   - dependency-check # general
+  - dex2jar #Android
   - doxygen #general
   - gettext #general
   - gifsicle #general
@@ -33,18 +35,6 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_installed_apps:
-  - atom
-  - burp-suite
-  - chromedriver
-  - docker
-  - dropbox
-  - firefox
-  - google-chrome
-  - handbrake
+  - android-studio # android
   - java
-  - owasp-zap
-  - packer
-  - sequel-pro
-  - slack
-  - vagrant
-  - virtualbox
+  - jd-gui #android
