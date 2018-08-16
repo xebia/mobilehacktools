@@ -13,13 +13,9 @@ fi
 echo "Installing Ansible"
 brew list ansible|| brew install ansible || brew link --overwrite ansible
 
-
 echo "installing necessary roles"
-ansible-galaxy install geerlingguy.homebrew
-ansible-galaxy install geerlingguy.mas
-ansible-galaxy install rvm_io.ruby
+ansible-galaxy install -r requirements.yml
 # ansible-galaxy install geerlingguy.dotfiles
-
 
 echo "running toolchain for generic items"
 ansible-playbook -K ./generic/generic_items.yml
