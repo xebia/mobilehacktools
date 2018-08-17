@@ -29,5 +29,5 @@ Does something not work? File an issue, better: file a pull-request!
 ## Special thanks to:
 [@clviper](https://github.com/clviper) & [@sushi2k](https://github.com/sushi2k) for contributing (review) & [@RiieCco](https://github.com/RiieCco) for motivating me to get the project started.
 [@geerlingguy](https://github.com/geerlingguy) for creating awesome Ansible roles that speeded up the development tremendously.
-Xebia, as a company from which I used an innovation day to kickstart the project.
+Xebia, as a company from which I could use a private repo to start hacking at this.
 My wife for supporting me in doing mobile security open source projects in my spare time.
