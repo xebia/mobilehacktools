@@ -5,7 +5,7 @@
 #- make it executable
 
 - name: check to see if SUPER is already installed
-  command: "cd /Applications/super ; ./super-analyzer --help"
+  command: "cd /Applications/super/super ; ./super-analyzer --help"
   ignore_errors: true
   register: super_is_installed
   changed_when: false
@@ -18,9 +18,9 @@
   - name: Unzip super downloadable
     unarchive:
       src: https://www.dropbox.com/s/rpfyyx0e9bn3y7c/super.zip?dl=1
-      dest: /Applications/super/
+      dest: /Applications/super
       remote_src: yes
 
   - name: make it executable
-    command: "chmod +x /Applications/super/super-analyzer"
+    command: "chmod +x /Applications/super/super/super-analyzer"
   when: super_is_installed.rc != 0
