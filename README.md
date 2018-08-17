@@ -23,6 +23,33 @@ ansible-galaxy install -r requirements.yml
 ansible-playbook -K ./Android/generic_items.yml
 ```
 
+## Tools 
+
+Brew, pip and ansible will be installed first, if not available. Then generic tools will be installed:
+
+- Frida
+- Objection
+- MobSF
+- Appmon
+
+Then the following tools will be installed for Andorid and iOS.
+
+### Installed for Android 
+
+- Nathan
+- super analyzer
+- Drozer
+- Qark
+
+### Installed for iOS 
+
+- classdump
+- itms
+- idb
+
+### 
+
+
 ## Contribution
 Does something not work? File an issue, better: file a pull-request!
 
