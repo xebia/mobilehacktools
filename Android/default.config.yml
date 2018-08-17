@@ -22,16 +22,11 @@ homebrew_installed_packages:
   - testssl #general
   - openssl #general
   - wget #general
-  - cmake #for idb (iOS)
-  - usbmuxd #for idb (iOS)
-  - libimobiledevice #for idb (iOS)
-  - qt@4 #for idb (iOS)
 
 
 homebrew_taps:
   - homebrew/core
   - homebrew/cask
-  - cartr/qt4 #idbtool
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_installed_apps:

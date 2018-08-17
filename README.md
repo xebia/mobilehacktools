@@ -54,7 +54,7 @@ Then the following tools will be installed for Andorid and iOS.
 Does something not work? File an issue, better: file a pull-request!
 
 ## Special thanks to:
-[@clviper](https://github.com/clviper) & [@sushi2k](https://github.com/sushi2k) for contributing (review) & [@RiieCco](https://github.com/RiieCco) for motivating me to get the project started.
+[@clviper](https://github.com/clviper) (reviewing) & [@sushi2k](https://github.com/sushi2k) for contributing & [@RiieCco](https://github.com/RiieCco) for motivating me to get the project started.
 [@geerlingguy](https://github.com/geerlingguy) for creating awesome Ansible roles that speeded up the development tremendously.
-Xebia, as a company from which I could use a private repo to start hacking at this.
+Xebia, as a company from which I used an private repo to start hacking at the project.
 My wife for supporting me in doing mobile security open source projects in my spare time.

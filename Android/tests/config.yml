@@ -1,16 +1,24 @@
 homebrew_installed_packages:
-  - autoconf
-  - bash-completion
-  - gettext
-  - sqlite
-  - ssh-copy-id
-  - cowsay
-  - readline
-  - pv
-  - wget
-  - wrk
-
-homebrew_cask_apps:
-  - firefox
-  - limechat
-  - macvim
+  # - ansible # Installed via Pip.
+  - autoconf # general
+  - apktool # necessary for Android reverse engineering
+  - bash-completion #general
+  - dependency-check # general
+  - dex2jar #Android
+  - doxygen #general
+  - gettext #general
+  - gifsicle #general
+  - git #general
+  - go #general
+  - gpg #general
+  - httpie #general
+  - ideviceinstaller #used by appmon general
+  - libimobiledevice #used by appmon general
+  - mcrypt #used by appmon
+  - nmap #general
+  - node #used by appmon
+  - python2 #general
+  - python #python 3
+  - testssl #general
+  - openssl #general
+  - wget #general
