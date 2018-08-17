@@ -4,8 +4,6 @@ homebrew_installed_packages:
   - bash-completion #general
   - dependency-check # general
   - doxygen #general
-  - gettext #general
-  - gifsicle #general
   - git #general
   - go #general
   - gpg #general
@@ -20,9 +18,6 @@ homebrew_installed_packages:
   - testssl #general
   - openssl #general
   - wget #general
-  - cmake #for idb (iOS)
-  - usbmuxd #for idb (iOS)
-  - libimobiledevice #for idb (iOS)
 
   homebrew_cask_installed_apps:
     - atom

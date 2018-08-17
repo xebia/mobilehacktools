@@ -23,31 +23,77 @@ ansible-galaxy install -r requirements.yml
 ansible-playbook -K ./Android/generic_items.yml
 ```
 
-## Tools 
+## Tools
 
-Brew, pip and ansible will be installed first, if not available. Then generic tools will be installed:
+Brew, pip and ansible will be installed first, if not available. Then generic, iOS and Android tools will be installed:
 
-- Frida
-- Objection
-- MobSF
-- Appmon
+### Generic Tools
 
-Then the following tools will be installed for Andorid and iOS.
+  - autoconf
+  - bash-completion
+  - dependency-check
+  - doxygen
+  - gettext
+  - gifsicle
+  - git
+  - go
+  - gpg
+  - httpie
+  - ideviceinstaller
+  - libimobiledevice
+  - mcrypt
+  - nmap
+  - node
+  - python2
+  - python #python 3
+  - testssl
+  - openssl
+  - wget
+  - atom
+  - burp-suite
+  - chromedriver
+  - docker
+  - dropbox
+  - firefox
+  - google-chrome
+  - handbrake
+  - java
+  - owasp-zap
+  - packer
+  - sequel-pro
+  - slack
+  - vagrant
+  - virtualbox
+  - Frida
+  - Objection
+  - MobSF
+  - Appmon
 
-### Installed for Android 
 
+### Tools for Android
+- apktool
+- dependency-check
+- dex2jar
+- ideviceinstaller
+- libimobiledevice
+- mcrypt
+- node
+- android-studio
+- java
+- jd-gui
 - Nathan
 - super analyzer
 - Drozer
 - Qark
 
-### Installed for iOS 
-
+### Tools for iOS
+- cmake
+- usbmuxd
+- libimobiledevice
+- qt@4
 - classdump
 - itms
 - idb
-
-### 
 
 
 ## Contribution

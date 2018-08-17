@@ -1,16 +1,15 @@
 homebrew_installed_packages:
-  - autoconf
-  - bash-completion
-  - gettext
-  - sqlite
-  - ssh-copy-id
-  - cowsay
-  - readline
-  - pv
-  - wget
-  - wrk
+  - autoconf # general
+  - git #general
+  - go #general
+  - gpg #general
+  - python2 #general
+  - python #python 3
+  - openssl #general
+  - wget #general
+  - cmake #for idb (iOS)
+  - usbmuxd #for idb (iOS)
+  - libimobiledevice #for idb (iOS)
 
-homebrew_cask_apps:
-  - firefox
-  - limechat
-  - macvim
+  homebrew_cask_installed_apps:
+    - atom
