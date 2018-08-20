@@ -14,8 +14,8 @@
 
 - block:
 
-  - name: Create folder
-    command: "mkdir /Applications/mobsf"
+  - name: Creates directory
+    file: path=/Applications/mobsf state=directory
 
   - name: Get mobsf docker container
     command: "docker pull opensecurity/mobile-security-framework-mobsf"

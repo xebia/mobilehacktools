@@ -13,8 +13,8 @@
 
 - block:
 
-    - name: create directory
-      command: "mkdir /Applications/nathan"
+    - name: Creates directory
+      file: path=/Applications/nathan state=directory
 
     - name: Unzip Nathan
       unarchive:
