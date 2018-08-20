@@ -42,10 +42,10 @@ script:
   # Test the playbook.
   - "travis_wait 30 ansible-playbook --extra-vars '{\"configure_sudoers\":\"false\"}' $TRAVIS_BUILD_DIR/generic/generic_items.yml"
 
-  # Copy test config.yml into place.
-  - "cp $TRAVIS_BUILD_DIR/generic/iOS/config.yml config.yml"
-  # Test the playbook.
-  - "travis_wait 30 ansible-playbook --extra-vars '{\"configure_sudoers\":\"false\"}' $TRAVIS_BUILD_DIR/iOS/generic_items.yml"
+  # # Copy test config.yml into place.
+  # - "cp $TRAVIS_BUILD_DIR/generic/iOS/config.yml config.yml"
+  # # Test the playbook.
+  # - "travis_wait 30 ansible-playbook --extra-vars '{\"configure_sudoers\":\"false\"}' $TRAVIS_BUILD_DIR/iOS/generic_items.yml"
 
   # Copy test config.yml into place.
   - "cp $TRAVIS_BUILD_DIR/generic/Android/config.yml config.yml"
