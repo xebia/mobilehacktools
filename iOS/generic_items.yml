@@ -16,8 +16,6 @@
 
   tasks:
 
-  - include_tasks: tasks/ansible-setup.yml
-
   - name: print out the hostname of target
     command: hostname
 

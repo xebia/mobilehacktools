@@ -25,8 +25,6 @@ ansible-playbook -K ./Android/generic_items.yml
 
 Please note: the iOS part requires you to install XCode using the Mac App Store (MAS) which will ask you to authenticate with a popup.
 
-Please note-2: Ansible will require your password in order to install.
-
 ## Tools
 
 Brew, pip and Ansible will be installed first, if not available. Then generic, iOS and Android tools will be installed:
@@ -104,7 +102,7 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
 Does something not work? Create an issue, or even better: create a pull-request!
 
 ## Special thanks to:
-[@clviper](https://github.com/clviper) (reviewing), [@meetinthemiddle-be](https://github.com/meetinthemiddle-be) for testing & [@sushi2k](https://github.com/sushi2k) for contributing & [@hierynomus](https://github.com/hierynomus) for fixing travis issues & [@RiieCco](https://github.com/RiieCco) for motivating me to get the project started.
+[@clviper](https://github.com/clviper) (reviewing), [@andreaslindeboom](https://github.com/andreaslindeboom) for a lot of ansible improvements, [@meetinthemiddle-be](https://github.com/meetinthemiddle-be) for testing & [@sushi2k](https://github.com/sushi2k) for contributing & [@hierynomus](https://github.com/hierynomus) for fixing travis issues & [@RiieCco](https://github.com/RiieCco) for motivating me to get the project started.
 [@geerlingguy](https://github.com/geerlingguy) for creating awesome Ansible roles that speeded up the development tremendously.
 Xebia, as a company from which I used an private repo to start hacking at the project.
 My wife for supporting me in doing mobile security open source projects in my spare time.

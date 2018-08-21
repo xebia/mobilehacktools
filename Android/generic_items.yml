@@ -13,11 +13,6 @@
 
   tasks:
 
-  - include_tasks: tasks/ansible-setup.yml
-
-  - name: print out the hostname of target
-    command: hostname
-
   - name: install pip, if necessary
     include: tasks/install-pip.yml
 
