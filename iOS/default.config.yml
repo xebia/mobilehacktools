@@ -24,3 +24,5 @@ homebrew_cask_installed_apps:
 
 mas_installed_apps:
   - { id: 497799835, name: "Xcode (9.4.1)" } #ios
+
+binary_install_path: /usr/local/bin
