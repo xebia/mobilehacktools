@@ -4,7 +4,7 @@ osx_image: xcode9.3
 before_install:
 # - brew update && brew upgrade gmp && rvm reinstall 2.1.4
 
-- brew update && brew upgrade
+# - brew update && brew upgrade
 - rvm install 2.5.1 --disable-binary
 # - curl -sLO https://raw.githubusercontent.com/Homebrew/install/master/uninstall
 # - chmod +x ./uninstall
