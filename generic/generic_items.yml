@@ -7,10 +7,6 @@
   vars_files:
    - default.config.yml
 
-  roles:
-    - role: geerlingguy.homebrew
-      tags: ['homebrew']
-
   tasks:
 
   - name: print out the hostname of target

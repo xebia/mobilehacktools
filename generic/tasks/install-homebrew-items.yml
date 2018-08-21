@@ -1,0 +1,7 @@
+- homebrew:
+    name: autoconf,bash-completion,dependency-check,doxygen,git,go,gpg,httpie,ideviceinstaller,libimobiledevice,mcrypt,nmap,node,python2,python,testssl,openssl,wget
+    state: present
+
+- homebrew_cask:
+    name: atom,burp-suite,chromedriver,docker,dropbox,firefox,google-chrome,java,owasp-zap,packer,sequel-pro,vagrant,virtualbox
+    state: present

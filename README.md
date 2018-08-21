@@ -19,7 +19,6 @@ ansible-playbook -K ./iOS/generic_items.yml
 
 - if you want to have the Android tools only: install brew and Ansible, then type:
 ```sh
-ansible-galaxy install -r requirements.yml
 ansible-playbook -K ./Android/generic_items.yml
 ```
 

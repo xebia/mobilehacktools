@@ -3,19 +3,18 @@
 - name: run the playbook tasks on the localhost
   hosts: 127.0.0.1
   connection: local
+  become: false
 
   vars_files:
    - default.config.yml
-
-  roles:
-    - role: geerlingguy.homebrew
-      tags: ['homebrew']
 
   tasks:
 
   - name: install pip, if necessary
     include: tasks/install-pip.yml
 
+  - name: install homebrew items
+    include: tasks/install-homebrew-items.yml
 #android
   - name: install drozer, if necessary
     include: tasks/install-drozer.yml
