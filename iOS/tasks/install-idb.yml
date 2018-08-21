@@ -6,21 +6,10 @@
 #- brew install additional modules
 #- gem install idb
 
-- name: check to see if objection is already installed
-  command: "which idb"
-  ignore_errors: true
-  register: idb_is_installed
-  changed_when: false
-
 - block:
 
-
-    - name: additional installation of modules (3/3)
-      command: "brew install cartr/qt4/qt@4"
-
-
     - name: install idbtool
-      command: "gem install idb"
-
+      gem:
+        name: idb
 
   when: idb_is_installed.rc != 0
