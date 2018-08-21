@@ -2,7 +2,7 @@ sudo: required
 language: objective-c
 osx_image: xcode9.3
 before_install:
-- brew update && brew install gmp && rvm reinstall 2.1.4
+- brew update && brew upgrade gmp && rvm reinstall 2.1.4
 - curl -sLO https://raw.githubusercontent.com/Homebrew/install/master/uninstall
 - chmod +x ./uninstall
 - "./uninstall --force"
