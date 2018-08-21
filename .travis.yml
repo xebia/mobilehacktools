@@ -31,7 +31,7 @@ deploy:
     api_key:
       secure: Dp3RsmJtG57tCm6CgD7ir2N/ZjFiRtNzHIzyYOIP608U79gzQbwABneR91twzlfc17xnYlpuSMM2q+ssvUu2mJXVFb0CVUbp4ACqiz9hzxRJLiCa2REi+H/14fqDaYc1kDFGZpQ9nCqrh21+fUVBJp1AEQOVeP+y+55Qpo6JjcZafPsjIFk9LYcn37zmlk+mgR1hoSJ/xlPLnUrehmCwlYhddHaKYdOdHEBCEBNEpleWdjPKyDg9nt1s7NHqK+WZzKpBSncPL4Whcss3Rky210tcYQVdaISRSnQSXKxX2TCPJeb0gJbodvjjPQfx49WFxe5MQ60XSlPBQLVwt9IdoF7TI1giYh/+V01svCnYcFeF8mO4RhkrgGR3Cdr4flPT49bCjBJjgoAWAkbtJ+xmTpXmYiqLw0mYuyoBwwZ6x4+K0SjmOrobWgtY5i+fIIIqWAiEs+fklfLQ7SSrAail2LQONgUJppH9Z5mWJOfAKPR6SCkR83LaAJtz1NSxd5nkyUzL9oGrRkEVAkg7G4OJdUfzGN+7dyAoR9DBvaIZw3PAHFVM4tbj7jZU5i7QJdsVetQcmnza7V2P87gYrNAtZoDLuWXojLHoarLprNRL+yj2ZMYkGsnuEgGxTyPhFuOBtSAyncJ+tJ8Ue9+7JFwAPRcZI9QFsSVq0155QzWFcK8=
     file: sources.tar.gz
-    skip_clenaup: true
+    skip_cleanup: true
     on:
       repo: xebia/mobilehacktools
       tags: true
