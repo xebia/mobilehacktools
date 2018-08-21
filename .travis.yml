@@ -14,8 +14,8 @@ install:
 - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 - sudo mkdir -p /etc/ansible
 - sudo touch /etc/ansible/hosts
-- rvm get stable
-- gem install dpl 
+- brew update && brew install gmp && rvm reinstall 2.1.4
+- gem install dpl
 - |-
   echo -e '[local]
   localhost ansible_connection=local' | sudo tee -a /etc/ansible/hosts > /dev/null
