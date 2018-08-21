@@ -5,7 +5,7 @@ before_install:
 # - brew update && brew upgrade gmp && rvm reinstall 2.1.4
 
 - brew upgrade gmp
-- rvm install ruby-2.2.5 --with-opt-dir=$(brew --prefix gmp) --disable-binary
+- rvm install 2.2.5 --disable-binary
 - curl -sLO https://raw.githubusercontent.com/Homebrew/install/master/uninstall
 - chmod +x ./uninstall
 - "./uninstall --force"
