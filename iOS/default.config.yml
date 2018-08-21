@@ -13,7 +13,6 @@ homebrew_installed_packages:
   - libimobiledevice #for idb (iOS)
   - qt@4 #for idb (iOS)
 
-
 homebrew_taps:
   - homebrew/core
   - homebrew/cask
@@ -22,7 +21,6 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_installed_apps:
   - atom
-
 
 mas_installed_apps:
   - { id: 497799835, name: "Xcode (9.4.1)" } #ios
