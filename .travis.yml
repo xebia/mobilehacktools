@@ -14,6 +14,7 @@ install:
 - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 - sudo mkdir -p /etc/ansible
 - sudo touch /etc/ansible/hosts
+- rvm get stable
 - |-
   echo -e '[local]
   localhost ansible_connection=local' | sudo tee -a /etc/ansible/hosts > /dev/null
@@ -22,7 +23,7 @@ script:
 - ansible-playbook $TRAVIS_BUILD_DIR/generic/generic_items.yml --syntax-check
 - ansible-playbook $TRAVIS_BUILD_DIR/iOS/generic_items.yml --syntax-check
 - ansible-playbook $TRAVIS_BUILD_DIR/Android/generic_items.yml --syntax-check
-- tar -zcvf sources.tar.gz $TRAVIS_BUILD_DIR
+- tar -zcvf sources.tar.gz directory-name
 deploy:
   provider: releases
   api_key:
