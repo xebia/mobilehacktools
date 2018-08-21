@@ -1,53 +1,33 @@
----
 sudo: required
 language: objective-c
-# 10.13 (see https://docs.travis-ci.com/user/osx-ci-environment/#OS-X-Version)
 osx_image: xcode9.3
-
 before_install:
-  # Uninstall existing Homebrew installation.
-  - curl -sLO https://raw.githubusercontent.com/Homebrew/install/master/uninstall
-  - chmod +x ./uninstall
-  - ./uninstall --force
-  - sudo rm -rf /usr/local/Homebrew
-  - sudo rm -rf /usr/local/Caskroom
-  - sudo rm -rf /usr/local/bin/brew
-
+- curl -sLO https://raw.githubusercontent.com/Homebrew/install/master/uninstall
+- chmod +x ./uninstall
+- "./uninstall --force"
+- sudo rm -rf /usr/local/Homebrew
+- sudo rm -rf /usr/local/Caskroom
+- sudo rm -rf /usr/local/bin/brew
 install:
-  # Install pip.
-  - sudo easy_install pip
-
-  # Install Ansible.
-  - sudo pip install ansible
-
-  # Add ansible.cfg to pick up roles path.
-  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
-
-  # Add a hosts file.
-  - sudo mkdir -p /etc/ansible
-  - sudo touch /etc/ansible/hosts
-  - "echo -e '[local]\nlocalhost ansible_connection=local' | sudo tee -a /etc/ansible/hosts > /dev/null"
-
+- sudo easy_install pip
+- sudo pip install ansible
+- "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
+- sudo mkdir -p /etc/ansible
+- sudo touch /etc/ansible/hosts
+- |-
+  echo -e '[local]
+  localhost ansible_connection=local' | sudo tee -a /etc/ansible/hosts > /dev/null
 script:
-  # Install dependencies.
-  - "ansible-galaxy install -r requirements.yml"
-
-  # Check the playbook's syntax.
-  - "ansible-playbook $TRAVIS_BUILD_DIR/generic/generic_items.yml --syntax-check"
-  - "ansible-playbook $TRAVIS_BUILD_DIR/iOS/generic_items.yml --syntax-check"
-  - "ansible-playbook $TRAVIS_BUILD_DIR/Android/generic_items.yml --syntax-check"
-
-  # # Copy test config.yml into place.
-  # - "cp $TRAVIS_BUILD_DIR/generic/tests/config.yml config.yml"
-  # # Test the playbook.
-  # - "travis_wait 30 ansible-playbook --extra-vars '{\"configure_sudoers\":\"false\"}' $TRAVIS_BUILD_DIR/generic/generic_items.yml"
-  #
-  # # Copy test config.yml into place.
-  # - "cp $TRAVIS_BUILD_DIR/generic/iOS/config.yml config.yml"
-  # # Test the playbook.
-  # - "travis_wait 30 ansible-playbook --extra-vars '{\"configure_sudoers\":\"false\"}' $TRAVIS_BUILD_DIR/iOS/generic_items.yml"
-  #
-  # # Copy test config.yml into place.
-  # - "cp $TRAVIS_BUILD_DIR/generic/Android/config.yml config.yml"
-  # # Test the playbook.
-  # - "travis_wait 30 ansible-playbook --extra-vars '{\"configure_sudoers\":\"false\"}' $TRAVIS_BUILD_DIR/Android/generic_items.yml"
+- ansible-galaxy install -r requirements.yml
+- ansible-playbook $TRAVIS_BUILD_DIR/generic/generic_items.yml --syntax-check
+- ansible-playbook $TRAVIS_BUILD_DIR/iOS/generic_items.yml --syntax-check
+- ansible-playbook $TRAVIS_BUILD_DIR/Android/generic_items.yml --syntax-check
+- tar -zcvf sources.tar.gz $TRAVIS_BUILD_DIR
+deploy:
+  provider: releases
+  api_key:
+    secure: Dp3RsmJtG57tCm6CgD7ir2N/ZjFiRtNzHIzyYOIP608U79gzQbwABneR91twzlfc17xnYlpuSMM2q+ssvUu2mJXVFb0CVUbp4ACqiz9hzxRJLiCa2REi+H/14fqDaYc1kDFGZpQ9nCqrh21+fUVBJp1AEQOVeP+y+55Qpo6JjcZafPsjIFk9LYcn37zmlk+mgR1hoSJ/xlPLnUrehmCwlYhddHaKYdOdHEBCEBNEpleWdjPKyDg9nt1s7NHqK+WZzKpBSncPL4Whcss3Rky210tcYQVdaISRSnQSXKxX2TCPJeb0gJbodvjjPQfx49WFxe5MQ60XSlPBQLVwt9IdoF7TI1giYh/+V01svCnYcFeF8mO4RhkrgGR3Cdr4flPT49bCjBJjgoAWAkbtJ+xmTpXmYiqLw0mYuyoBwwZ6x4+K0SjmOrobWgtY5i+fIIIqWAiEs+fklfLQ7SSrAail2LQONgUJppH9Z5mWJOfAKPR6SCkR83LaAJtz1NSxd5nkyUzL9oGrRkEVAkg7G4OJdUfzGN+7dyAoR9DBvaIZw3PAHFVM4tbj7jZU5i7QJdsVetQcmnza7V2P87gYrNAtZoDLuWXojLHoarLprNRL+yj2ZMYkGsnuEgGxTyPhFuOBtSAyncJ+tJ8Ue9+7JFwAPRcZI9QFsSVq0155QzWFcK8=
+  file: sources.tar.gz
+  on:
+    repo: xebia/mobilehacktools
+    tags: true
