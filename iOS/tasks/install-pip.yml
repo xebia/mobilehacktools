@@ -30,7 +30,7 @@
 
     - name: delete get-pip.py
       file:
-        state: absent 
+        state: absent
         path: /tmp/get-pip.py
 
   when: pip_is_installed.rc != 0

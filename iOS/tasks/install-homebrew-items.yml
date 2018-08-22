@@ -1,3 +1,3 @@
 - homebrew:
-    name: autoconf,git,go,gpg,python2,python,openssl,wget
+    name: autoconf,git,go,gpg,python2,node, python,openssl,wget
     state: present

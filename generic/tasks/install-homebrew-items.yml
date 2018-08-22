@@ -1,5 +1,5 @@
 - homebrew:
-    name:  autoconf,bash-completion,dependency-check,doxygen,git,go,gpg,httpie,ideviceinstaller,libimobiledevice,mcrypt,nmap,node,python2,python,testssl,openssl,wget
+    name: autoconf,bash-completion,dependency-check,doxygen,git,go,gpg,httpie,ideviceinstaller,libimobiledevice,mcrypt,nmap,node,python2,python,testssl,openssl,wget
     state: present
 
 - name: check if Atom is installed

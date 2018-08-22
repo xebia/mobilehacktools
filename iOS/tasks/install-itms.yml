@@ -1,9 +1,5 @@
 # file: install-itms.yml
 # Used to install itms to download ipas from adhoc distros :https://www.npmjs.com/package/itms-services
-# Steps to take:
-#- git download https://github.com/mseclab/nathan
-#- cd into it and execute ./nathan.py init
-#- make sure it is in path
 
 - name: install itms
   npm:
