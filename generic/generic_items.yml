@@ -18,8 +18,8 @@
   - name: install homebrew items
     include: tasks/install-homebrew-items.yml
 
-  - name: add another cask:
-    command: brew tap homebrew/cask
+  - name: add another cask
+    command: "brew tap homebrew/cask"
 
   - name: install brew cask items
     include: tasks/install_homebrew_cask_items.yml

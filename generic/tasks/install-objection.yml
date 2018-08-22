@@ -12,6 +12,8 @@
 - block:
 
     - name: install objection
-      command: "pip3 install objection"
+      pip:
+        name: objection
+        executable: pip-3.7
 
   when: objection_is_installed.rc != 0

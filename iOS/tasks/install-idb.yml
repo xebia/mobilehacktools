@@ -1,8 +1,6 @@
 # file: install-idb.yml
 # http://www.idbtool.com/installation/
 # Steps to take:
-#- TODO: FIX ITEMS AGAIN!!! WITH BLOCK AND TEST (AND DO ALL THE BREW INSTALLING HERE)
-#- install rvm
 #- brew install prefered modules
 #- brew install additional modules
 #- gem install idb
