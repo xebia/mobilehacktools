@@ -30,8 +30,6 @@ homebrew_installed_packages:
     - handbrake
     - java
     - owasp-zap
-    - packer
     - sequel-pro
-    - slack
     - vagrant
     - virtualbox
