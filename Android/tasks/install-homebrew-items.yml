@@ -4,7 +4,8 @@
 
 
 - name: check if Android Studio is installed
-  command: cat /Applications/Android\ Studio.app/Contents/Info.plist
+  stat:
+    path: /Applications/Android\ Studio.app
   register: studio_installed
   ignore_errors: True
 
@@ -13,7 +14,8 @@
   when: studio_installed is failed
 
 - name: check if JD-GUI is installed
-  command: ls /Applications/JD-GUI.app/
+  stat:
+    path: /Applications/JD-GUI.app
   register: jd_gui_installed
   ignore_errors: True
 
