@@ -1,3 +1,3 @@
 - homebrew:
-    name: autoconf,git,go,gpg,python2,python,openssl,wget,cmake,usbmuxd,libimobiledevice,qt@5
+    name: autoconf,git,go,gpg,python2,python,openssl,wget
     state: present
