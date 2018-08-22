@@ -37,4 +37,4 @@ ansible-playbook ./Android/generic_items.yml
 
 echo "run iOS toolchain book"
 ansible-galaxy install -r requirements.yml
-ansible-playbook -K ./iOS/generic_items.yml
+ansible-playbook ./iOS/generic_items.yml

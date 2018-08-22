@@ -5,7 +5,7 @@
 # HVG!!
 
 - name: check to see if classdump is already installed
-  command: "/Applications/classdump/class-dump"
+  command: "class-dump"
   ignore_errors: true
   register: classdump_is_installed
   changed_when: false
@@ -18,10 +18,11 @@
         classdump_install_path: "{{ binary_install_path }}/classdump"
 
     - name: ensure classdump directory is present
-      file: 
-        path: 
+      file:
+        path: "{{ binary_install_path }}/classdump"
         state: directory
 
+        #TODO fix classdump copying here to make it work!
     - name: copy class-dump files
       copy:
         src: classdump

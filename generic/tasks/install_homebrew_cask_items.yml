@@ -1,0 +1,8 @@
+- set_fact: brew_cask="{{item}}"
+- command: which {{brew_cask}}
+  register: item_installed
+  ignore_errors: True
+
+- name: Install cask
+  command: "brew cask install {{brew_cask}}"
+  when: item_installed is failed

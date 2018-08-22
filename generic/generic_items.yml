@@ -15,6 +15,18 @@
   - name: install pip, if necessary
     include: tasks/install-pip.yml
 
+  - name: install homebrew items
+    include: tasks/install-homebrew-items.yml
+
+  - name: install brew cask items
+    include: tasks/install_homebrew_cask_items.yml
+    with_items:
+      - chromedriver
+      - docker
+      - java
+      - packer
+      - vagrant
+      - virtualbox
 #general
   - name: install frida tools, if necessary
     include: tasks/install-frida.yml

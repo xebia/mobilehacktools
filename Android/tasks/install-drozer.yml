@@ -14,7 +14,9 @@
 - block:
 
     - name: download drozer
-      get_url: url=https://github.com/mwrlabs/drozer/releases/download/2.4.4/drozer-2.4.4-py2-none-any.whl  dest=/tmp
+      get_url:
+        url: https://github.com/mwrlabs/drozer/releases/download/2.4.4/drozer-2.4.4-py2-none-any.whl
+        dest: /tmp
 
     - name: install ninja 2
       command: "pip install ninja2"

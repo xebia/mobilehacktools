@@ -19,7 +19,7 @@ ansible-playbook -K ./iOS/generic_items.yml
 
 - if you want to have the Android tools only: install brew and Ansible, then type:
 ```sh
-ansible-playbook -K ./Android/generic_items.yml
+ansible-playbook ./Android/generic_items.yml
 ```
 
 Please note: the iOS part requires you to install XCode using the Mac App Store (MAS) which will ask you to authenticate with a popup.

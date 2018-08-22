@@ -1,7 +1,59 @@
 - homebrew:
-    name: autoconf,bash-completion,dependency-check,doxygen,git,go,gpg,httpie,ideviceinstaller,libimobiledevice,mcrypt,nmap,node,python2,python,testssl,openssl,wget
+    name:  autoconf,bash-completion,dependency-check,doxygen,git,go,gpg,httpie,ideviceinstaller,libimobiledevice,mcrypt,nmap,node,python2,python,testssl,openssl,wget
     state: present
 
-- homebrew_cask:
-    name: atom,burp-suite,chromedriver,docker,dropbox,firefox,google-chrome,java,owasp-zap,packer,sequel-pro,vagrant,virtualbox
-    state: present
+- command: ls /Applications/Atom.app
+  register: atom_installed
+  ignore_errors: True
+
+- name: Install Atom (cask is too immature)
+  command: "brew cask install atom"
+  when: atom_installed is failed
+
+- command: ls /Applications/Burp\ Suite\ Community\ Edition.app
+  register: burp_installed
+  ignore_errors: True
+
+- name: Install Burp
+  command: "brew cask install burp-suite"
+  when: burp_installed is failed
+
+- command: ls /Applications/Firefox.app
+  register: firefox_installed
+  ignore_errors: True
+
+- name: Install Firefox
+  command: "brew cask install firefox"
+  when: firefox_installed is failed
+
+- command: ls /Applications/Google\ Chrome.app.app
+  register: chrome_installed
+  ignore_errors: True
+
+- name: Install Google Chrome
+  command: "brew cask install google-chrome"
+  when: chrome_installed is failed
+
+- command: ls /Applications/OWASP\ ZAP.app
+  register: zap_installed
+  ignore_errors: True
+
+- name: Install Owas ZAP
+  command: "brew cask install owasp-zap"
+  when: zap_installed is failed
+
+- command: ls /Applications/Dropbox.app
+  register: dropbox_installed
+  ignore_errors: True
+
+- name: Install Dropbox
+  command: "brew cask install dropbox"
+  when: dropbox_installed is failed
+
+- command: ls /Applications/Sequel\ Pro.app
+  register: sequel-pro_installed
+  ignore_errors: True
+
+- name: Install Google Chrome
+  command: "brew cask install sequel-pro"
+  when: sequel-pro_installed is failed
