@@ -29,6 +29,8 @@ script:
 - ansible-playbook $TRAVIS_BUILD_DIR/Android/generic_items.yml --syntax-check
 - ansible-playbook $TRAVIS_BUILD_DIR/generic/generic_items.yml
 - ansible-playbook $TRAVIS_BUILD_DIR/Android/generic_items.yml
+- ansible-playbook $TRAVIS_BUILD_DIR/generic/generic_items.yml #idempotency check for generic
+- ansible-playbook $TRAVIS_BUILD_DIR/Android/generic_items.yml #idempotency check for Android
 - tar -zcvf sources.tar.gz $TRAVIS_BUILD_DIR
 deploy:
   - provider: releases
