@@ -19,19 +19,19 @@
 
     - name: ensure classdump directory is present
       file:
-        path: "{{ binary_install_path }}/classdump"
+        path: "{{ binary_install_path }}"
         state: directory
 
         #TODO fix classdump copying here to make it work!
     - name: copy class-dump files
       copy:
-        src: classdump
+        src: resources/classdump
         dest: "{{ classdump_install_path }}"
 
     - name: symlink class-dump binary
       file:
-        path: "{{ binary_install_path }}"
-        src: "{{ classdump_install_path }}/class-dump"
+        path: "{{ binary_install_path }}/class-dump"
+        src: "{{ classdump_install_path }}/classdump/class-dump"
         state: link
 
     - name: make class-dump executable
