@@ -6,9 +6,9 @@
 #- brew install prefered modules
 #- brew install additional modules
 #- gem install idb
-- homebrew:
-    name: cmake,usbmuxd,libimobiledevice,qt@5
-    state: present
-    - name: install idbtool
-      gem:
-        name: idb
+# - homebrew:
+#     name: cmake,usbmuxd,libimobiledevice,qt@5
+#     state: present
+#     - name: install idbtool
+#       gem:
+#         name: idb
