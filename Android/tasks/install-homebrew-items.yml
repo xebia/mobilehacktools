@@ -3,15 +3,17 @@
     state: present
 
 
-- command: cat /Applications/Android Studio.app/Contents/Info.plist
+- name: check if Android Studio is installed
+  command: cat /Applications/Android\ Studio.app/Contents/Info.plist
   register: studio_installed
   ignore_errors: True
 
-- name: Install Android studio (cask is too immature)
+- name: Install Android studio
   command: "brew cask install android-studio"
   when: studio_installed is failed
 
-- command: ls /Applications/JD-GUI.app/
+- name: check if JD-GUI is installed
+  command: ls /Applications/JD-GUI.app/
   register: jd_gui_installed
   ignore_errors: True
 
@@ -19,10 +21,11 @@
   command: "brew cask install jd-gui"
   when: jd_gui_installed is failed
 
-- command: which java
+- name: check if Java is installed
+  command: which java
   register: java_installed
   ignore_errors: True
 
-- name: Install java (cask is too immature)
+- name: Install Java
   command: "brew cask install java"
   when: java_installed is failed

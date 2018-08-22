@@ -2,15 +2,19 @@
     name:  autoconf,bash-completion,dependency-check,doxygen,git,go,gpg,httpie,ideviceinstaller,libimobiledevice,mcrypt,nmap,node,python2,python,testssl,openssl,wget
     state: present
 
-- command: ls /Applications/Atom.app
+- name: check if Atom is installed
+  stat:
+    path: /Applications/Atom.app
   register: atom_installed
   ignore_errors: True
 
-- name: Install Atom (cask is too immature)
+- name: Install Atom
   command: "brew cask install atom"
   when: atom_installed is failed
 
-- command: ls /Applications/Burp\ Suite\ Community\ Edition.app
+- name: check if Burp is installed
+  stat:
+    path: /Applications/Burp\ Suite\ Community\ Edition.app
   register: burp_installed
   ignore_errors: True
 
@@ -18,7 +22,9 @@
   command: "brew cask install burp-suite"
   when: burp_installed is failed
 
-- command: ls /Applications/Firefox.app
+- name: check if FF is installed
+  stat:
+    path: /Applications/Firefox.app
   register: firefox_installed
   ignore_errors: True
 
@@ -26,7 +32,9 @@
   command: "brew cask install firefox"
   when: firefox_installed is failed
 
-- command: ls /Applications/Google\ Chrome.app.app
+- name: check if Chrome is installed
+  stat:
+      path: /Applications/Google\ Chrome.app
   register: chrome_installed
   ignore_errors: True
 
@@ -34,7 +42,9 @@
   command: "brew cask install google-chrome"
   when: chrome_installed is failed
 
-- command: ls /Applications/OWASP\ ZAP.app
+- name: check if Zap is installed
+  stat:
+    path: /Applications/OWASP\ ZAP.app
   register: zap_installed
   ignore_errors: True
 
@@ -42,7 +52,9 @@
   command: "brew cask install owasp-zap"
   when: zap_installed is failed
 
-- command: ls /Applications/Dropbox.app
+- name: check if DB is installed
+  stat:
+    path: /Applications/Dropbox.app
   register: dropbox_installed
   ignore_errors: True
 
@@ -50,10 +62,12 @@
   command: "brew cask install dropbox"
   when: dropbox_installed is failed
 
-- command: ls /Applications/Sequel\ Pro.app
-  register: sequel-pro_installed
+- name: check if SP is installed
+  stat:
+    path: /Applications/Sequel\ Pro.app
+  register: sequel_pro_installed
   ignore_errors: True
 
-- name: Install Google Chrome
+- name: Install SP
   command: "brew cask install sequel-pro"
-  when: sequel-pro_installed is failed
+  when: sequel_pro_installed is failed
