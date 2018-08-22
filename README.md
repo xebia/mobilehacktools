@@ -60,9 +60,7 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
   - handbrake
   - java
   - owasp-zap
-  - packer
   - sequel-pro
-  - slack
   - vagrant
   - virtualbox
   - Frida

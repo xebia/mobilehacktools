@@ -27,7 +27,6 @@
       - chromedriver
       - docker
       - java
-      - packer
       - vagrant
       - virtualbox
 #general
