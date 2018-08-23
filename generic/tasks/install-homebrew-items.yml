@@ -25,6 +25,7 @@
 - name: check if Burp is installed
   shell: ls /Applications/Burp\ Suite\ Community\ Edition.app
   register: p
+  ignore_errors: yes
 
 - name: Install Burp
   command: "brew cask install burp-suite --force"
@@ -33,6 +34,7 @@
 - name: check if FF is installed
   shell: ls /Applications/Firefox.app
   register: p
+  ignore_errors: yes
 
 - name: Install Firefox
   command: "brew cask install firefox --force"
@@ -41,6 +43,7 @@
 - name: check if Chrome is installed
   shell: ls /Applications/Google\ Chrome.app
   register: p
+  ignore_errors: yes
 
 - name: Install Google Chrome
   command: "brew cask install google-chrome --force"
@@ -49,6 +52,7 @@
 - name: check if Zap is installed
   shell: ls /Applications/OWASP\ ZAP.app
   register: p
+  ignore_errors: yes
 
 - name: Install Owasp ZAP
   command: "brew cask install owasp-zap --force"
@@ -57,6 +61,7 @@
 - name: check if DB is installed
   shell: ls /Applications/Dropbox.app
   register: p
+  ignore_errors: yes
 
 - name: Install Dropbox
   command: "brew cask install dropbox --force"
@@ -65,6 +70,7 @@
 - name: check if SP is installed
   shell: ls /Applications/Sequel\ Pro.app
   register: p
+  ignore_errors: yes
 
 - name: Install SP
   command: "brew cask install sequel-pro --force"
