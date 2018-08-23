@@ -25,7 +25,7 @@
 
   - name: Prepare for gettig docker container
     pip:
-      name: docker-py
+      name: docker docker-py
 
   - name: Get mobsf docker container
     docker_image:
