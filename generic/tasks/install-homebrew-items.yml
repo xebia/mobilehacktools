@@ -28,7 +28,7 @@
 
 - name: Install Atom
   command: "brew cask install atom"
-  when: atom_installed is not defined
+  when: not atom_installed.stat.exists
 
 - name: check if Burp is installed
   stat:
@@ -37,7 +37,7 @@
 
 - name: Install Burp
   command: "brew cask install burp-suite"
-  when: burp_installed is not defined
+  when: not burp_installed.stat.exists
 
 - name: check if FF is installed
   stat:
@@ -46,16 +46,16 @@
 
 - name: Install Firefox
   command: "brew cask install firefox"
-  when: firefox_installed is not defined
+  when: not firefox_installed.stat.exists
 
 - name: check if Chrome is installed
   stat:
-      path: /Applications/Google\ Chrome.app
+    path: /Applications/Google Chrome.app
   register: chrome_installed
 
 - name: Install Google Chrome
   command: "brew cask install google-chrome"
-  when: chrome_installed is not defined
+  when: not chrome_installed.stat.exists
 
 - name: check if Zap is installed
   stat:
@@ -64,7 +64,7 @@
 
 - name: Install Owas ZAP
   command: "brew cask install owasp-zap"
-  when: zap_installed is not defined
+  when: not zap_installed.stat.exists
 
 - name: check if DB is installed
   stat:
@@ -73,7 +73,7 @@
 
 - name: Install Dropbox
   command: "brew cask install dropbox"
-  when: dropbox_installed is not defined
+  when: not dropbox_installed.stat.exists
 
 - name: check if SP is installed
   stat:
@@ -82,4 +82,4 @@
 
 - name: Install SP
   command: "brew cask install sequel-pro"
-  when: sequel_pro_installed is not defined
+  when: not sequel_pro_installed.stat.exists

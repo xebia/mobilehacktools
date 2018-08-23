@@ -7,27 +7,25 @@
   stat:
     path: /Applications/Android\ Studio.app
   register: studio_installed
-  ignore_errors: True
 
 - name: Install Android studio
   command: "brew cask install android-studio"
-  when: studio_installed is failed
+  when: not studio_installed.stat.exists
 
 - name: check if JD-GUI is installed
   stat:
     path: /Applications/JD-GUI.app
   register: jd_gui_installed
-  ignore_errors: True
+
 
 - name: Install jdgui (cask is too immature)
   command: "brew cask install jd-gui"
-  when: jd_gui_installed is failed
+  when: not jd_gui_installed.stat.exists
 
 - name: check if Java is installed
   command: which java
   register: java_installed
-  ignore_errors: True
 
 - name: Install Java
   command: "brew cask install java"
-  when: java_installed is failed
+  when: java_installed.rc != 0
