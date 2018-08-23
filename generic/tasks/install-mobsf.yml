@@ -25,6 +25,7 @@
 
   - name: get the mobsf docker container
     command: "docker pull opensecurity/mobile-security-framework-mobsf"
+    ignore_errors: yes #added because of build server...
   # will be enabled when the docker image module is working again on testing server
   # - name: Prepare for gettig docker container
   #   pip:
