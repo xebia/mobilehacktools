@@ -7,23 +7,30 @@
 #- make the installed version available in path
 
 - name: check to see if mobsf is already installed
-  command: "cat /Applications/mobsf/Mobile-Security-Framework-MobSF-master/manage.py"
+  command: "cat {{ binary_install_path }}/mobsf/Mobile-Security-Framework-MobSF-master/manage.py"
   ignore_errors: true
   register: mobsf_is_installed
   changed_when: false
 
 - block:
+  # TODO: move this to role vars as soon as using roles
+  - name: determine mobsf binary dir
+    set_fact:
+      classdump_install_path: "{{ binary_install_path }}/mobsf"
 
-  - name: Creates directory
-    file: path=/Applications/mobsf state=directory
+  - name: ensure classdump directory is present
+    file:
+      path: "{{ binary_install_path }}"
+      state: directory
 
   - name: Get mobsf docker container
-    command: "docker pull opensecurity/mobile-security-framework-mobsf"
+    docker_image:
+      name: opensecurity/mobile-security-framework-mobsf
 
   - name: Unzip Mobsf git
     unarchive:
       src: https://github.com/MobSF/Mobile-Security-Framework-MobSF/archive/master.zip
-      dest: /Applications/mobsf/
+      dest: "{{ binary_install_path }}"
       remote_src: yes
 
   - name: install MobSF
