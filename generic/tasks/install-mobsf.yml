@@ -23,13 +23,15 @@
       path: "{{ mobsf_install_path }}"
       state: directory
 
-  - name: Prepare for gettig docker container
-    pip:
-      name: docker docker-py
-
-  - name: Get mobsf docker container
-    docker_image:
-      name: opensecurity/mobile-security-framework-mobsf
+  - name: get the mobsf docker container
+    command: "docker pull opensecurity/mobile-security-framework-mobsf"
+  # will be enabled when the docker image module is working again on testing server
+  # - name: Prepare for gettig docker container
+  #   pip:
+  #     name: docker docker-py
+  # - name: Get mobsf docker container
+  #   docker_image:
+  #     name: opensecurity/mobile-security-framework-mobsf
 
   - name: Unzip Mobsf git
     unarchive:
