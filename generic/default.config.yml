@@ -1,5 +1,6 @@
 binary_install_path: /usr/local/bin
 additional_brew_cask_items:
+  - atom
   - chromedriver
   - docker
   - java

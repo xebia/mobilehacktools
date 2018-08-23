@@ -1,85 +1,71 @@
-- homebrew:
-    name: "{{item}}"
-    state: present
-  with_items:
-    - autoconf
-    - bash-completion
-    - dependency-check
-    - doxygen
-    - git
-    - go
-    - gpg
-    - httpie
-    - ideviceinstaller
-    - libimobiledevice
-    - mcrypt
-    - nmap
-    - node
-    - python2
-    - python
-    - testssl
-    - openssl
-    - wget
+# - homebrew:
+#     name: "{{item}}"
+#     state: present
+#   with_items:
+#     - autoconf
+#     - bash-completion
+#     - dependency-check
+#     - doxygen
+#     - git
+#     - go
+#     - gpg
+#     - httpie
+#     - ideviceinstaller
+#     - libimobiledevice
+#     - mcrypt
+#     - nmap
+#     - node
+#     - python2
+#     - python
+#     - testssl
+#     - openssl
+#     - wget
 
-- name: check if Atom is installed
-  stat:
-    path: /Applications/Atom.app
-  register: atom_installed
-
-- name: Install Atom
-  command: "brew cask install atom"
-  when: not atom_installed.stat.exists
 
 - name: check if Burp is installed
-  stat:
-    path: /Applications/Burp\ Suite\ Community\ Edition.app
-  register: burp_installed
+  shell: ls /Applications/Burp\ Suite\ Community\ Edition.app
+  register: p
 
 - name: Install Burp
-  command: "brew cask install burp-suite"
-  when: not burp_installed.stat.exists
+  command: "brew cask install burp-suite --force"
+  when: p.rc != 0
 
 - name: check if FF is installed
-  stat:
-    path: /Applications/Firefox.app
-  register: firefox_installed
+  shell: ls /Applications/Firefox.app
+  register: p
 
 - name: Install Firefox
-  command: "brew cask install firefox"
-  when: not firefox_installed.stat.exists
+  command: "brew cask install firefox --force"
+  when: p.rc != 0
 
 - name: check if Chrome is installed
-  stat:
-    path: /Applications/Google Chrome.app
-  register: chrome_installed
+  shell: ls /Applications/Google\ Chrome.app
+  register: p
 
 - name: Install Google Chrome
-  command: "brew cask install google-chrome"
-  when: not chrome_installed.stat.exists
+  command: "brew cask install google-chrome --force"
+  when: p.rc != 0
 
 - name: check if Zap is installed
-  stat:
-    path: /Applications/OWASP\ ZAP.app
-  register: zap_installed
+  shell: ls /Applications/OWASP\ ZAP.app
+  register: p
 
-- name: Install Owas ZAP
-  command: "brew cask install owasp-zap"
-  when: not zap_installed.stat.exists
+- name: Install Owasp ZAP
+  command: "brew cask install owasp-zap --force"
+  when: p.rc != 0
 
 - name: check if DB is installed
-  stat:
-    path: /Applications/Dropbox.app
-  register: dropbox_installed
+  shell: ls /Applications/Dropbox.app
+  register: p
 
 - name: Install Dropbox
-  command: "brew cask install dropbox"
-  when: not dropbox_installed.stat.exists
+  command: "brew cask install dropbox --force"
+  when: p.rc != 0
 
 - name: check if SP is installed
-  stat:
-    path: /Applications/Sequel\ Pro.app
-  register: sequel_pro_installed
+  shell: ls /Applications/Sequel\ Pro.app
+  register: p
 
 - name: Install SP
-  command: "brew cask install sequel-pro"
-  when: not sequel_pro_installed.stat.exists
+  command: "brew cask install sequel-pro --force"
+  when: p.rc != 0
