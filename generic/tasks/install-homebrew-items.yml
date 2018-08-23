@@ -25,68 +25,61 @@
   stat:
     path: /Applications/Atom.app
   register: atom_installed
-  ignore_errors: True
 
 - name: Install Atom
   command: "brew cask install atom"
-  when: atom_installed is failed
+  when: atom_installed is not defined
 
 - name: check if Burp is installed
   stat:
     path: /Applications/Burp\ Suite\ Community\ Edition.app
   register: burp_installed
-  ignore_errors: True
 
 - name: Install Burp
   command: "brew cask install burp-suite"
-  when: burp_installed is failed
+  when: burp_installed is not defined
 
 - name: check if FF is installed
   stat:
     path: /Applications/Firefox.app
   register: firefox_installed
-  ignore_errors: True
 
 - name: Install Firefox
   command: "brew cask install firefox"
-  when: firefox_installed is failed
+  when: firefox_installed is not defined
 
 - name: check if Chrome is installed
   stat:
       path: /Applications/Google\ Chrome.app
   register: chrome_installed
-  ignore_errors: True
 
 - name: Install Google Chrome
   command: "brew cask install google-chrome"
-  when: chrome_installed is failed
+  when: chrome_installed is not defined
 
 - name: check if Zap is installed
   stat:
     path: /Applications/OWASP\ ZAP.app
   register: zap_installed
-  ignore_errors: True
 
 - name: Install Owas ZAP
   command: "brew cask install owasp-zap"
-  when: zap_installed is failed
+  when: zap_installed is not defined
 
 - name: check if DB is installed
   stat:
     path: /Applications/Dropbox.app
   register: dropbox_installed
-  ignore_errors: True
 
 - name: Install Dropbox
   command: "brew cask install dropbox"
-  when: dropbox_installed is failed
+  when: dropbox_installed is not defined
 
 - name: check if SP is installed
   stat:
     path: /Applications/Sequel\ Pro.app
   register: sequel_pro_installed
-  ignore_errors: True
 
 - name: Install SP
   command: "brew cask install sequel-pro"
-  when: sequel_pro_installed is failed
+  when: sequel_pro_installed is not defined
