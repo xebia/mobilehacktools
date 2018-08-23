@@ -26,8 +26,7 @@
   - name: Prepare for gettig docker container
     pip:
       name: docker-py
-      executable: pip-3.7
-      
+
   - name: Get mobsf docker container
     docker_image:
       name: opensecurity/mobile-security-framework-mobsf
