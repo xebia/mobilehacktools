@@ -19,8 +19,8 @@
     pip:
       name: frida-tools
 
-    - name: Remind people of further installation
-      debug:
-        msg: "See https://www.frida.re/docs/installation/ for followup on frida for android and ios"
+  - name: Remind people of further installation
+    debug:
+      msg: "See https://www.frida.re/docs/installation/ for followup on frida for android and ios"
 
   when: frida_is_installed.rc != 0
