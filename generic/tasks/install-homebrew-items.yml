@@ -1,25 +1,25 @@
-# - homebrew:
-#     name: "{{item}}"
-#     state: present
-#   with_items:
-#     - autoconf
-#     - bash-completion
-#     - dependency-check
-#     - doxygen
-#     - git
-#     - go
-#     - gpg
-#     - httpie
-#     - ideviceinstaller
-#     - libimobiledevice
-#     - mcrypt
-#     - nmap
-#     - node
-#     - python2
-#     - python
-#     - testssl
-#     - openssl
-#     - wget
+- homebrew:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - autoconf
+    - bash-completion
+    - dependency-check
+    - doxygen
+    - git
+    - go
+    - gpg
+    - httpie
+    - ideviceinstaller
+    - libimobiledevice
+    - mcrypt
+    - nmap
+    - node
+    - python2
+    - python
+    - testssl
+    - openssl
+    - wget
 
 
 - name: check if Burp is installed
