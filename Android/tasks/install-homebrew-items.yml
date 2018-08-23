@@ -4,23 +4,12 @@
 
 
 - name: check if Android Studio is installed
-  stat:
-    path: /Applications/Android\ Studio.app
+  command: ls /Applications/Android\ Studio.app
   register: studio_installed
 
 - name: Install Android studio
   command: "brew cask install android-studio"
-  when: not studio_installed.stat.exists
-
-- name: check if JD-GUI is installed
-  stat:
-    path: /Applications/JD-GUI.app
-  register: jd_gui_installed
-
-
-- name: Install jdgui (cask is too immature)
-  command: "brew cask install jd-gui"
-  when: not jd_gui_installed.stat.exists
+  when: studio_installed.rc != 0
 
 - name: check if Java is installed
   command: which java
@@ -29,3 +18,11 @@
 - name: Install Java
   command: "brew cask install java"
   when: java_installed.rc != 0
+
+- name: check if JD-GUI is installed
+  command: ls /Applications/JD-GUI.app
+  register: jd_gui_installed
+
+- name: Install jdgui (cask is too immature)
+  command: "brew cask install jd-gui --force"
+  when: jd_gui_installed.rc != 0
