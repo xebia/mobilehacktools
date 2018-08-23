@@ -7,7 +7,7 @@
 #- make the installed version available in path
 
 - name: check to see if mobsf is already installed
-  command: "cat {{ binary_install_path }}/mobsf/Mobile-Security-Framework-MobSF-master/manage.py"
+  command: "which mobsf"
   ignore_errors: true
   register: mobsf_is_installed
   changed_when: false
@@ -16,7 +16,7 @@
   # TODO: move this to role vars as soon as using roles
   - name: determine mobsf binary dir
     set_fact:
-      mobsf_install_path: "{{ binary_install_path }}/mobsf"
+      mobsf_install_path: "{{ binary_install_path }}/mob-sf"
 
   - name: ensure mobsf directory is present
     file:
@@ -51,5 +51,8 @@
       path: "{{ binary_install_path }}/mobsf"
       src: "{{ mobsf_install_path }}/Mobile-Security-Framework-MobSF-master/mobsf.sh"
       state: link
-
+  - name: make mobsf executable
+    file:
+      path: "{{ binary_install_path }}/mobsf"
+      mode: a+x
   when: mobsf_is_installed.rc != 0
