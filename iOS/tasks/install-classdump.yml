@@ -22,7 +22,6 @@
         path: "{{ binary_install_path }}"
         state: directory
 
-        #TODO fix classdump copying here to make it work!
     - name: copy class-dump files
       copy:
         src: resources/classdump
