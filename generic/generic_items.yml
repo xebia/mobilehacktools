@@ -24,11 +24,7 @@
   - name: install brew cask items
     include: tasks/install_homebrew_cask_items.yml
     with_items:
-      - chromedriver
-      - docker
-      - java
-      - vagrant
-      - virtualbox
+      "{{ additional_brew_cask_items }}"
 #general
   - name: install frida tools, if necessary
     include: tasks/install-frida.yml
