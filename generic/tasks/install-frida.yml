@@ -11,11 +11,13 @@
 
 - block:
 
-    - name: install frida
-      command: "pip install frida"
+  - name: install frida
+    pip:
+      name: frida
 
-    - name: install frida-tools
-      command: "pip install frida-tools"
+  - name: install frida-tools
+    pip:
+      name: frida-tools
 
     - name: Remind people of further installation
       debug:
