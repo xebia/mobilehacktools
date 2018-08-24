@@ -6,23 +6,44 @@
 #- make sure it is in path
 
 - name: check to see if nathan is already installed
-  command: "/Applications/nathan/nathan-master/nathan.py -h"
+  command: "which nathan"
   ignore_errors: true
   register: nathan_is_installed
   changed_when: false
 
 - block:
 
-    - name: Creates directory
-      file: path=/Applications/nathan state=directory
+  - name: determine nathan binary dir
+    set_fact:
+      nathan_install_path: "{{ binary_install_path }}/nathan_package"
 
-    - name: Unzip Nathan
-      unarchive:
-        src: https://github.com/mseclab/nathan/archive/master.zip
-        dest: /Applications/nathan/
-        remote_src: yes
+  - name: Creates directory
+    file:
+      path: "{{ nathan_install_path }}"
+      state: directory
 
-    - name: Initialize Nathan
-      command: "cd /Applications/nathan/nathan-master ; ./nathan.py init"
+  - name: Unzip Nathan
+    unarchive:
+      src: https://github.com/mseclab/nathan/archive/master.zip
+      dest: "{{ nathan_install_path }}"
+      remote_src: yes
 
+  - name: copy nathan script files
+    copy:
+      src: resources/nathan.sh
+      dest: "{{ nathan_install_path }}/nathan-master"
+
+  - name: Initialize Nathan
+    command: "cd {{ nathan_install_path }}/nathan-master ; ./nathan.py init"
+
+  - name: symlink Nathan
+    file:
+      path: "{{ binary_install_path }}/nathan"
+      src: "{{ nathan_install_path }}/nathan-master/nathan.sh"
+      state: link
+
+  - name: make qark executable
+    file:
+      path: "{{ binary_install_path }}/nathan"
+      mode: a+x
   when: nathan_is_installed.rc != 0
