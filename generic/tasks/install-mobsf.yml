@@ -39,14 +39,14 @@
       src: https://github.com/MobSF/Mobile-Security-Framework-MobSF/archive/master.zip
       dest: "{{ mobsf_install_path }}"
       remote_src: yes
-
-  - name: install MobSF
-    shell: |
-      cd {{ mobsf_install_path }}/Mobile-Security-Framework-MobSF-master
-      pip3 install virtualenv
-      virtualenv -p python3 venv
-      source venv/bin/activate
-      pip3 install -r requirements.txt
+# installing gives failures given python precedence
+  # - name: install MobSF
+  #   shell: |
+  #     cd {{ mobsf_install_path }}/Mobile-Security-Framework-MobSF-master
+  #     pip3 install virtualenv
+  #     virtualenv -p python3 venv
+  #     source venv/bin/activate
+  #     pip3 install -r requirements.txt
 
   - name: copy mobsf script files
     copy:
