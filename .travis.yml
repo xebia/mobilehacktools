@@ -15,7 +15,6 @@ before_install:
 install:
 - sudo easy_install pip
 - brew update
-- brew upgrade
 - sudo pip install ansible
 - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 - sudo mkdir -p /etc/ansible
