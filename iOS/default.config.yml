@@ -1,28 +1,4 @@
-homebrew_installed_packages:
-  # - ansible # Installed via Pip.
-  - autoconf # general
-  - git #general
-  - go #general
-  - gpg #general
-  - python2 #general
-  - python #python 3
-  - openssl #general
-  - wget #general
-  - cmake #for idb (iOS)
-  - usbmuxd #for idb (iOS)
-  - libimobiledevice #for idb (iOS)
-  - qt@4 #for idb (iOS)
-
-
-homebrew_taps:
-  - homebrew/core
-  - homebrew/cask
-  - cartr/qt4 #idbtool
-
-homebrew_cask_appdir: /Applications
-homebrew_cask_installed_apps:
-  - atom
-
-
 mas_installed_apps:
   - { id: 497799835, name: "Xcode (9.4.1)" } #ios
+
+binary_install_path: /usr/local/bin

@@ -5,22 +5,32 @@
 #- make it executable
 
 - name: check to see if SUPER is already installed
-  command: "cd /Applications/super/super ; ./super-analyzer --help"
+  command: "super --help"
   ignore_errors: true
   register: super_is_installed
   changed_when: false
 
 - block:
+  - name: determine super binary dir
+    set_fact:
+      super_install_path: "{{ binary_install_path }}/super_package"
 
-  - name: Create folder
-    command: "mkdir /Applications/super"
+  - name: ensure super directory is present
+    file:
+      path: "{{ super_install_path }}"
+      state: directory
 
   - name: Unzip super downloadable
     unarchive:
       src: https://www.dropbox.com/s/cclfxmd0o4wnsg8/super.zip?dl=1
-      dest: /Applications/super
+      dest: "{{ super_install_path }}"
       remote_src: yes
 
+  - name: symlink qark script
+    file:
+      path: "{{ binary_install_path }}/super"
+      src: "{{ super_install_path }}/super/super-analyzer"
+      state: link
   - name: make it executable
-    command: "chmod +x /Applications/super/super/super-analyzer"
+    command: "chmod +x {{ binary_install_path }}/super"
   when: super_is_installed.rc != 0

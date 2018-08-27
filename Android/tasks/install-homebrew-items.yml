@@ -1,0 +1,32 @@
+- homebrew:
+    name: autoconf,apktool,bash-completion,dependency-check,dex2jar,git,gpg,python2,python,openssl,wget
+    state: present
+
+
+- name: check if Android Studio is installed
+  command: ls /Applications/Android\ Studio.app
+  register: studio_installed
+  ignore_errors: yes
+
+- name: Install Android studio
+  command: "brew cask install android-studio"
+  when: studio_installed.rc != 0
+
+- name: check if Java is installed
+  command: which java
+  register: java_installed
+  ignore_errors: yes
+
+- name: Install Java
+  command: "brew cask install java"
+  when: java_installed.rc != 0
+  ignore_errors: yes
+
+- name: check if JD-GUI is installed
+  command: ls /Applications/JD-GUI.app
+  register: jd_gui_installed
+  ignore_errors: yes
+
+- name: Install jdgui (cask is too immature)
+  command: "brew cask install jd-gui --force"
+  when: jd_gui_installed.rc != 0

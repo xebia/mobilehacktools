@@ -7,31 +7,59 @@
 #- make the installed version available in path
 
 - name: check to see if mobsf is already installed
-  command: "cat /Applications/mobsf/Mobile-Security-Framework-MobSF-master/manage.py"
+  command: "which mobsf"
   ignore_errors: true
   register: mobsf_is_installed
   changed_when: false
 
 - block:
+  # TODO: move this to role vars as soon as using roles
+  - name: determine mobsf binary dir
+    set_fact:
+      mobsf_install_path: "{{ binary_install_path }}/mob-sf"
 
-  - name: Creates directory
-    file: path=/Applications/mobsf state=directory
+  - name: ensure mobsf directory is present
+    file:
+      path: "{{ mobsf_install_path }}"
+      state: directory
 
-  - name: Get mobsf docker container
+  - name: get the mobsf docker container
     command: "docker pull opensecurity/mobile-security-framework-mobsf"
+    ignore_errors: yes #added because of build server...
+  # will be enabled when the docker image module is working again on testing server
+  # - name: Prepare for gettig docker container
+  #   pip:
+  #     name: docker docker-py
+  # - name: Get mobsf docker container
+  #   docker_image:
+  #     name: opensecurity/mobile-security-framework-mobsf
 
   - name: Unzip Mobsf git
     unarchive:
       src: https://github.com/MobSF/Mobile-Security-Framework-MobSF/archive/master.zip
-      dest: /Applications/mobsf/
+      dest: "{{ mobsf_install_path }}"
       remote_src: yes
+# installing gives failures given python precedence
+  # - name: install MobSF
+  #   shell: |
+  #     cd {{ mobsf_install_path }}/Mobile-Security-Framework-MobSF-master
+  #     pip3 install virtualenv
+  #     virtualenv -p python3 venv
+  #     source venv/bin/activate
+  #     pip3 install -r requirements.txt
 
-  - name: install MobSF
-    shell: |
-      cd /Applications/mobsf/Mobile-Security-Framework-MobSF-master
-      pip3 install virtualenv
-      virtualenv -p python3 venv
-      source venv/bin/activate
-      pip3 install -r requirements.txt
+  - name: copy mobsf script files
+    copy:
+      src: resources/mobsf.sh
+      dest: "{{ mobsf_install_path }}/Mobile-Security-Framework-MobSF-master"
 
+  - name: symlink mobsf script
+    file:
+      path: "{{ binary_install_path }}/mobsf"
+      src: "{{ mobsf_install_path }}/Mobile-Security-Framework-MobSF-master/mobsf.sh"
+      state: link
+  - name: make mobsf executable
+    file:
+      path: "{{ binary_install_path }}/mobsf"
+      mode: a+x
   when: mobsf_is_installed.rc != 0

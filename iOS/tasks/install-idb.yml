@@ -1,12 +1,12 @@
 # file: install-idb.yml
 # http://www.idbtool.com/installation/
 # Steps to take:
-#- install rvm
 #- brew install prefered modules
 #- brew install additional modules
 #- gem install idb
 
-- name: check to see if objection is already installed
+#homebrew_tap is still in preview mode, which is why we use a script for the INSECURE qt4
+- name: check to see if idb is already installed
   command: "which idb"
   ignore_errors: true
   register: idb_is_installed
@@ -14,13 +14,22 @@
 
 - block:
 
+  - name: tap qt4 (insecure)
+    command: "brew tap cartr/qt4"
 
-    - name: additional installation of modules (3/3)
-      command: "brew install cartr/qt4/qt@4"
+  - name: pin tap qt4 (insecure)
+    command: "brew tap-pin cartr/qt4"
 
+  - name: install qt4 (insecure)
+    command: "brew install cartr/qt4/qt@4"
 
-    - name: install idbtool
-      command: "gem install idb"
+  - homebrew:
+      name: cmake,usbmuxd,libimobiledevice
+      state: present
 
+  - name: install idbtool
+    gem:
+      name: idb
+      state: present
 
   when: idb_is_installed.rc != 0

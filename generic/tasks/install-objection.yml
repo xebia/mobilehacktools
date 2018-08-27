@@ -11,7 +11,7 @@
 
 - block:
 
-    - name: install objection
+    - name: install objection # note: not using pip module as pip3 is not automatically resolved correctly on mac os x by ansible
       command: "pip3 install objection"
 
   when: objection_is_installed.rc != 0

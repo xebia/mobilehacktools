@@ -6,24 +6,42 @@
 #pLEASE NOTE: v2 will be up soon hopefully, so we can update this!
 
 - name: check to see if Qark is already installed
-  command: "python /Applications/qark/qark-master/qark/qarkMain.py -h"
+  command: "which qark"
   ignore_errors: true
   register: qark_is_installed
   changed_when: false
 
 - block:
+  - name: determine qark binary dir
+    set_fact:
+      qark_install_path: "{{ binary_install_path }}/qark_package"
 
-  - name: create directory
-    command: "mkdir /Applications/qark"
+  - name: ensure qark directory is present
+    file:
+      path: "{{ qark_install_path }}"
+      state: directory
 
   - name: Unzip qark
     unarchive:
       src: https://github.com/linkedin/qark/archive/master.zip
-      dest: /Applications/qark/
+      dest: "{{ qark_install_path }}"
       remote_src: yes
 
-  - name: do a first run
-    command: "python /Applications/qark/qark-master/qark/qarkMain.py -h"
+  - name: copy qark script files
+    copy:
+      src: resources/qark.sh
+      dest: "{{ qark_install_path }}/qark-master"
+
+  - name: symlink qark script
+    file:
+      path: "{{ binary_install_path }}/qark"
+      src: "{{ qark_install_path }}/qark-master/qark.sh"
+      state: link
+
+  - name: make qark executable
+    file:
+      path: "{{ binary_install_path }}/qark"
+      mode: a+x
 
 
   when: qark_is_installed.rc != 0

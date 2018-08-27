@@ -1,0 +1,13 @@
+- homebrew:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - autoconf
+    - git
+    - go
+    - gpg
+    - python2
+    - node
+    - python
+    - openssl
+    - wget

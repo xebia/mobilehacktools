@@ -7,13 +7,7 @@
   vars_files:
    - default.config.yml
 
-  roles:
-    - role: geerlingguy.homebrew
-      tags: ['homebrew']
-
   tasks:
-
-  - include_tasks: tasks/ansible-setup.yml
 
   - name: print out the hostname of target
     command: hostname
@@ -21,6 +15,16 @@
   - name: install pip, if necessary
     include: tasks/install-pip.yml
 
+  - name: install homebrew items
+    include: tasks/install-homebrew-items.yml
+
+  - name: add another cask
+    command: "brew tap homebrew/cask"
+
+  - name: install brew cask items
+    include: tasks/install_homebrew_cask_items.yml
+    with_items:
+      "{{ additional_brew_cask_items }}"
 #general
   - name: install frida tools, if necessary
     include: tasks/install-frida.yml

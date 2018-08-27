@@ -1,0 +1,77 @@
+- homebrew:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - autoconf
+    - bash-completion
+    - dependency-check
+    - doxygen
+    - git
+    - go
+    - gpg
+    - httpie
+    - ideviceinstaller
+    - libimobiledevice
+    - mcrypt
+    - nmap
+    - node
+    - python2
+    - python
+    - testssl
+    - openssl
+    - wget
+
+
+- name: check if Burp is installed
+  shell: ls /Applications/Burp\ Suite\ Community\ Edition.app
+  register: p
+  ignore_errors: yes
+
+- name: Install Burp
+  command: "brew cask install burp-suite --force"
+  when: p.rc != 0
+
+- name: check if FF is installed
+  shell: ls /Applications/Firefox.app
+  register: p
+  ignore_errors: yes
+
+- name: Install Firefox
+  command: "brew cask install firefox --force"
+  when: p.rc != 0
+
+- name: check if Chrome is installed
+  shell: ls /Applications/Google\ Chrome.app
+  register: p
+  ignore_errors: yes
+
+- name: Install Google Chrome
+  command: "brew cask install google-chrome --force"
+  when: p.rc != 0
+
+- name: check if Zap is installed
+  shell: ls /Applications/OWASP\ ZAP.app
+  register: p
+  ignore_errors: yes
+
+- name: Install Owasp ZAP
+  command: "brew cask install owasp-zap --force"
+  when: p.rc != 0
+
+- name: check if DB is installed
+  shell: ls /Applications/Dropbox.app
+  register: p
+  ignore_errors: yes
+
+- name: Install Dropbox
+  command: "brew cask install dropbox --force"
+  when: p.rc != 0
+
+- name: check if SP is installed
+  shell: ls /Applications/Sequel\ Pro.app
+  register: p
+  ignore_errors: yes
+
+- name: Install SP
+  command: "brew cask install sequel-pro --force"
+  when: p.rc != 0

@@ -29,15 +29,12 @@ fi
 echo "Installing Ansible"
 brew list ansible|| brew install ansible || brew link --overwrite ansible
 
-echo "installing necessary roles"
-ansible-galaxy install -r requirements.yml
-# ansible-galaxy install geerlingguy.dotfiles
-
 echo "running toolchain for generic items"
-ansible-playbook -K ./generic/generic_items.yml
-
-echo "run iOS toolchain book"
-ansible-playbook -K ./iOS/generic_items.yml
+ansible-playbook ./generic/generic_items.yml
 
 echo "run Android toolchain book"
-ansible-playbook -K ./Android/generic_items.yml
+ansible-playbook ./Android/generic_items.yml
+
+echo "run iOS toolchain book"
+ansible-galaxy install -r requirements.yml
+ansible-playbook ./iOS/generic_items.yml
