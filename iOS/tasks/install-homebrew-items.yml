@@ -1,3 +1,12 @@
+- name: check if java is installed
+  command: brew cask list java
+  register: java_check
+  ignore_errors: true
+
+- name: install java
+  command: brew cask install java
+  when: java_check.stdout > "0"
+  
 - homebrew:
     name: "{{item}}"
     state: present
