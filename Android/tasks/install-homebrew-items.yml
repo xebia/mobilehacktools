@@ -1,3 +1,12 @@
+- name: check if java is installed
+  command: which java
+  register: java_installed
+  ignore_errors: yj2ZMYkGsnuEgGxTyPhFuOBtSAyncJ
+
+- name: install java
+  command: brew cask install java
+  when: java_installed.rc != 0
+
 - homebrew:
     name: autoconf,apktool,bash-completion,dependency-check,dex2jar,git,gpg,python2,python,openssl,wget
     state: present
