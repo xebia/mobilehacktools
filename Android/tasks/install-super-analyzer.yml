@@ -22,6 +22,7 @@
 
   - name: Download super files as unarchive is too fast ( with sha256)
     get_url:
+      timeout: 30
       url: https://www.dropbox.com/s/cclfxmd0o4wnsg8/super.zip?dl=1
       dest: "{{ super_install_path }}"
       checksum: sha256:807e2ef37953f452d178d306fd78f839cfc14c2b24b0fd8723e7613abc0a11d6
