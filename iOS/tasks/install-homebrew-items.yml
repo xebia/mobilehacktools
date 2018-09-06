@@ -20,3 +20,12 @@
     - python
     - openssl
     - wget
+
+- name: check if ifunbox is installed
+  command: "ls /Applications/iFunBox.app"
+  register: ifunbox_check
+  ignore_errors: true
+
+  - name: install java
+    command: "brew cask ifunbox"
+    when: ifunbox_check.rc != 0
