@@ -30,9 +30,17 @@
     - openssl
     - wget
 
+- name: check if Docker is item_installed
+  command: "docker --help"
+  register: docker_installed
+  ignore_errors: true
+
+- name: install docker
+  command: "brew cask install docker"
+  when: docker_installed.rc !=0
 
 - name: check if Burp is installed
-  shell: ls /Applications/Burp\ Suite\ Community\ Edition.app
+  command: "ls /Applications/Burp\ Suite\ Community\ Edition.app"
   register: p
   ignore_errors: yes
 
