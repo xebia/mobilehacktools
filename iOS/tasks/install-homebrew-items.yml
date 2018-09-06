@@ -26,6 +26,6 @@
   register: ifunbox_check
   ignore_errors: true
 
-  - name: install java
-    command: "brew cask ifunbox"
+  - name: install ifunbox
+    command: "brew cask install ifunbox"
     when: ifunbox_check.rc != 0
