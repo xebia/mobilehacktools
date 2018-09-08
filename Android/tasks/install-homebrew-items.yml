@@ -21,15 +21,10 @@
   command: "brew cask install android-studio"
   when: studio_installed.rc != 0
 
-- name: check if adb is installed
-  command: "which adb"
-  register: adb_installed
-  ignore_errors: yes
-
-- name: install android studio Tools
-  command: "brew caskinstall android-platform-tools"
-  when: adb_installed.rc != 0
-
+- name: Add path variables
+  command: "echo 'export ANDROID_HOME=/Users/$USER/Library/Android/sdk' >> ~/.bash_profile ; echo 'export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools' >> ~/.bash_profile"
+  when: studio_installed.rc != 0
+  
 - name: check if Java is installed
   command: "which java"
   register: java_installed
