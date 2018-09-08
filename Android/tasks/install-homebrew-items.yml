@@ -1,7 +1,7 @@
 - name: check if java is installed
   command: "brew cask list java"
   register: java_check
-  ignore_errors: true
+  ignore_errors: yes
 
 - name: install java
   command: "brew cask install java"
@@ -20,6 +20,15 @@
 - name: Install Android studio
   command: "brew cask install android-studio"
   when: studio_installed.rc != 0
+
+- name: check if adb is installed
+  command: "which adb"
+  register: adb_installed
+  ignore_errors: yes
+
+- name: install android studio Tools
+  command: "brew caskinstall android-platform-tools"
+  when: adb_installed.rc != 0
 
 - name: check if Java is installed
   command: "which java"

@@ -8,7 +8,7 @@
 
 - name: check to see if mobsf is already installed
   command: "which mobsf"
-  ignore_errors: true
+  ignore_errors: yes
   register: mobsf_is_installed
   changed_when: false
 

@@ -1,7 +1,7 @@
 - name: check if java is installed
   command: "brew cask list java"
   register: java_check
-  ignore_errors: true
+  ignore_errors: yes
 
 - name: install java
   command: "brew cask install java"
@@ -24,7 +24,7 @@
 - name: check if ifunbox is installed
   command: "ls /Applications/iFunBox.app"
   register: ifunbox_check
-  ignore_errors: true
+  ignore_errors: yes
 
   - name: install ifunbox
     command: "brew cask install ifunbox"

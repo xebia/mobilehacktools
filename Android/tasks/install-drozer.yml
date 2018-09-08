@@ -7,7 +7,7 @@
 
 - name: check to see if drozer is already installed
   command: "drozer"
-  ignore_errors: true
+  ignore_errors: yes
   register: drozer_is_installed
   changed_when: false
 

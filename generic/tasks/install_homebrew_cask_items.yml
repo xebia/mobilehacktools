@@ -3,7 +3,7 @@
 - name: Check if {{brew_cask}} is installed
   command: "which {{brew_cask}}"
   register: item_installed
-  ignore_errors: True
+  ignore_errors: yes
 
 - name: Install {{brew_cask}}
   command: "brew cask install {{brew_cask}}"

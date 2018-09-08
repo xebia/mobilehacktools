@@ -6,7 +6,7 @@
 
 - name: check to see if classdump is already installed
   command: "class-dump"
-  ignore_errors: true
+  ignore_errors: yes
   register: classdump_is_installed
   changed_when: false
 

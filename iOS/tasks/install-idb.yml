@@ -8,7 +8,7 @@
 #homebrew_tap is still in preview mode, which is why we use a script for the INSECURE qt4
 - name: check to see if idb is already installed
   command: "which idb"
-  ignore_errors: true
+  ignore_errors: yes
   register: idb_is_installed
   changed_when: false
 

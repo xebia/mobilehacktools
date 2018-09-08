@@ -6,7 +6,7 @@
 
 - name: check to see if SUPER is already installed
   command: "super --help"
-  ignore_errors: true
+  ignore_errors: yes
   register: super_is_installed
   changed_when: false
 

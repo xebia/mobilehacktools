@@ -9,7 +9,7 @@
 
 - name: check to see if Appmon is already installed
   command: "appmon -h"
-  ignore_errors: true
+  ignore_errors: yes
   register: appmon_is_installed
   changed_when: false
 

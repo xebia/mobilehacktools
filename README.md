@@ -93,6 +93,7 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
 - classdump
 - itms
 - idb
+- java
 
 
 ## Contribution

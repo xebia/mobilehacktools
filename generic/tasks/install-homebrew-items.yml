@@ -1,7 +1,7 @@
 - name: check if java is installed
   command: brew cask list java
   register: java_check
-  ignore_errors: true
+  ignore_errors: yes
 
 - name: install java
   command: brew cask install java
@@ -33,7 +33,7 @@
 - name: check if Docker is item_installed
   command: "docker --help"
   register: docker_installed
-  ignore_errors: true
+  ignore_errors: yes
 
 - name: install docker
   command: "brew cask install docker"
