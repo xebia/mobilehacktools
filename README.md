@@ -64,6 +64,8 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
   - Objection
   - MobSF
   - Appmon
+  - zsh //sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 
 
 ### Tools for Android

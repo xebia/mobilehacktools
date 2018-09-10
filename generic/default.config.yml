@@ -5,4 +5,3 @@ additional_brew_cask_items:
   - chromedriver
   - vagrant
   - virtualbox
-  - zsh

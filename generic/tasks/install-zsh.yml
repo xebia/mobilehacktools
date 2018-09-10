@@ -1,0 +1,17 @@
+# file: install-zsh.yml
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# Steps to take:
+#- pip3 install objection
+
+- name: check to see if zsh is already installed
+  command: "which zsh"
+  ignore_errors: yes
+  register: zsh_is_installed
+  changed_when: false
+
+- block:
+
+    - name: install zsh
+      command: "sh -c '$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)'"
+
+  when: zsh_is_installed.rc != 0
