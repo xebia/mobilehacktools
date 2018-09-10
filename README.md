@@ -34,8 +34,6 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
   - bash-completion
   - dependency-check
   - doxygen
-  - gettext
-  - gifsicle
   - git
   - go
   - gpg
@@ -47,7 +45,7 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
   - node
   - python2
   - python #python 3
-  - testssl
+  - testssl.sh
   - openssl
   - wget
   - atom
@@ -57,7 +55,6 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
   - dropbox
   - firefox
   - google-chrome
-  - handbrake
   - java
   - owasp-zap
   - sequel-pro
@@ -90,16 +87,16 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
 - usbmuxd
 - libimobiledevice
 - qt@4
-- classdump
+- class-dump
 - itms
 - idb
 - java
 
 ## Quirks
 As we are still in development of 1.0, there are the following quirks:
-- Some applications might not work the first time as you will first have to start them from your Applications folder, such as: Android Studio & Docker for Mac.
+- Some applications might not work the first time as you will first have to start them from your Applications folder, such as: Android Studio (including ADB) & Docker for Mac.
 - iOS has not been tested on the buildserver (only general and android are, so please test them)
-- for iOS you need to run things twice: once to start the installation, while being logged in into the Apple store with your account, second time with an active developer account in xCode.
+- For iOS you need to run things twice: once to start the installation, while being logged in into the Apple store with your account, second time with an active developer account in xCode.
 
 
 ## Contribution
