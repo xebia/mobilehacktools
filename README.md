@@ -95,6 +95,12 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
 - idb
 - java
 
+## Quirks
+As we are still in development of 1.0, there are the following quirks:
+- Some applications might not work the first time as you will first have to start them from your Applications folder, such as: Android Studio & Docker for Mac.
+- iOS has not been tested on the buildserver (only general and android are, so please test them)
+- for iOS you need to run things twice: once to start the installation, while being logged in into the Apple store with your account, second time with an active developer account in xCode.
+
 
 ## Contribution
 Does something not work? Create an issue, or even better: create a pull-request!
