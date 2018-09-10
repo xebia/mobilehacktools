@@ -21,8 +21,12 @@
   command: "brew cask install android-studio"
   when: studio_installed.rc != 0
 
+- name: Ensure presence of bash_profile
+  file: state=touch path={{home_directory}}/.bash_profile
+  when: studio_installed.rc != 0
+  
 - name: add ANDROID_HOME
-  action: lineinfile dest={{ home_directory }}/.bashrc line="{{ item }}"
+  action: lineinfile dest={{ home_directory }}/.bash_profile line="{{ item }}"
   with_items:
     - 'export ANDROID_HOME={{ home_directory }}/Library/Android/sdk/'
     - 'export ANDROID_TOOLS=$ANDROID_HOME/tools/'
