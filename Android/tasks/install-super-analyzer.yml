@@ -32,12 +32,6 @@
       src: "{{ super_install_path }}/super.zip"
       dest: "{{ super_install_path }}"
 
-  # - name: Unzip super downloadable
-  #   unarchive:
-  #     src: https://www.dropbox.com/s/cclfxmd0o4wnsg8/super.zip?dl=1
-  #     dest: "{{ super_install_path }}"
-  #     remote_src: yes
-
   - name: symlink qark script
     file:
       path: "{{ binary_install_path }}/super"

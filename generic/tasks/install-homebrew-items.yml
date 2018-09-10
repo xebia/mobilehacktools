@@ -76,7 +76,7 @@
   command: "brew cask install owasp-zap --force"
   when: p.rc != 0
 
-- name: check if DB is installed
+- name: check if Dropbox is installed
   shell: ls /Applications/Dropbox.app
   register: p
   ignore_errors: yes
@@ -85,11 +85,11 @@
   command: "brew cask install dropbox --force"
   when: p.rc != 0
 
-- name: check if SP is installed
+- name: check if Sequel Pro is installed
   shell: ls /Applications/Sequel\ Pro.app
   register: p
   ignore_errors: yes
 
-- name: Install SP
+- name: Install Sequel Pro
   command: "brew cask install sequel-pro --force"
   when: p.rc != 0

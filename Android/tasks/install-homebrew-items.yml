@@ -24,7 +24,7 @@
 - name: Ensure presence of bash_profile
   file: state=touch path={{home_directory}}/.bash_profile
   when: studio_installed.rc != 0
-  
+
 - name: add ANDROID_HOME
   action: lineinfile dest={{ home_directory }}/.bash_profile line="{{ item }}"
   with_items:
@@ -40,6 +40,6 @@
   register: jd_gui_installed
   ignore_errors: yes
 
-- name: Install jdgui (cask is too immature)
+- name: Install JD-GUI (cask is too immature)
   command: "brew cask install jd-gui --force"
   when: jd_gui_installed.rc != 0

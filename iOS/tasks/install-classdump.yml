@@ -4,7 +4,7 @@
 # - copy classdump and deprotect to classdump folder
 # HVG!!
 
-- name: check to see if classdump is already installed
+- name: check to see if class-dump is already installed
   command: "class-dump"
   ignore_errors: yes
   register: classdump_is_installed

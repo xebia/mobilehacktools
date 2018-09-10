@@ -3,7 +3,7 @@
 # Steps to take:
 #- pip3 install objection
 
-- name: check to see if zsh is already installed
+- name: check to see if my-zsh is already installed
   command: "which zsh"
   ignore_errors: yes
   register: zsh_is_installed
@@ -11,7 +11,7 @@
 
 - block:
 
-    - name: install zsh
+    - name: install my-zsh 
       command: "sh -c '$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)'"
 
   when: zsh_is_installed.rc != 0
