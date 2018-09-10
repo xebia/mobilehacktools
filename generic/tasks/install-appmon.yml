@@ -60,9 +60,9 @@
       mode: a+x
 
   #appmon non-jailbroken ios:
-  - name: install ios-deploy
-    npm:
-      name: ios-deploy
-      global: yes
+  # - name: install ios-deploy
+  #   npm:
+  #     name: ios-deploy
+  #     global: yes
 
   when: appmon_is_installed.rc != 0
