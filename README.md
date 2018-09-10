@@ -71,6 +71,7 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
 - dependency-check
 - dex2jar
 - ideviceinstaller
+- jadx
 - libimobiledevice
 - mcrypt
 - node
