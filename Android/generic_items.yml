@@ -7,7 +7,9 @@
 
   vars_files:
    - default.config.yml
-
+  vars:
+     home_directory: "{{ lookup('env', 'HOME') }}"
+     
   tasks:
 
   - name: install pip, if necessary

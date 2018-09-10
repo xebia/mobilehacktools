@@ -22,15 +22,15 @@
   when: studio_installed.rc != 0
 
 - name: add ANDROID_HOME
-  action: lineinfile dest={{ user_home.stdout }}/.bashrc line="{{ item }}"
+  action: lineinfile dest={{ home_directory }}/.bashrc line="{{ item }}"
   with_items:
-    - 'export ANDROID_HOME={{ user_home.stdout }}/opt/{{ android_folder }}'
+    - 'export ANDROID_HOME={{ home_directory }}/Library/Android/sdk/'
     - 'export ANDROID_TOOLS=$ANDROID_HOME/tools/'
     - 'export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools/'
     - 'export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS'
   sudo: no
   when: studio_installed.rc != 0
-  
+
 - name: check if JD-GUI is installed
   command: "ls /Applications/JD-GUI.app"
   register: jd_gui_installed
