@@ -99,7 +99,7 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
 As we are still in development of 1.0, there are the following quirks:
 - Some applications might not work the first time as you will first have to start them from your Applications folder, such as: Android Studio (including ADB) & Docker for Mac.
 - iOS has not been tested on the buildserver (only general and android are, so please test them)
-- For iOS you need to run things twice: once to start the installation, while being logged in into the Apple store with your account, second time with an active developer account in xCode.
+- For iOS you need to run things twice: once to start the installation, while being logged in into the Apple store with your account (actual active state can be achieved by installing any app from the app-store), second time with an active developer account in xCode.
 
 
 ## Contribution
