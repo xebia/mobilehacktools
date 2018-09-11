@@ -1,3 +1,12 @@
+- name: check if java is installed
+  command: brew cask list java
+  register: java_check
+  ignore_errors: yes
+
+- name: install java
+  command: brew cask install java
+  when: java_check.stdout > "0"
+
 - homebrew:
     name: "{{item}}"
     state: present
@@ -10,6 +19,7 @@
     - go
     - gpg
     - httpie
+    - jadx
     - ideviceinstaller
     - libimobiledevice
     - mcrypt
@@ -21,9 +31,17 @@
     - openssl
     - wget
 
+- name: check if Docker is item_installed
+  command: "docker --help"
+  register: docker_installed
+  ignore_errors: yes
+
+- name: install docker
+  command: "brew cask install docker"
+  when: docker_installed.rc !=0
 
 - name: check if Burp is installed
-  shell: ls /Applications/Burp\ Suite\ Community\ Edition.app
+  command: "ls /Applications/Burp\ Suite\ Community\ Edition.app"
   register: p
   ignore_errors: yes
 
@@ -58,7 +76,7 @@
   command: "brew cask install owasp-zap --force"
   when: p.rc != 0
 
-- name: check if DB is installed
+- name: check if Dropbox is installed
   shell: ls /Applications/Dropbox.app
   register: p
   ignore_errors: yes
@@ -67,11 +85,11 @@
   command: "brew cask install dropbox --force"
   when: p.rc != 0
 
-- name: check if SP is installed
+- name: check if Sequel Pro is installed
   shell: ls /Applications/Sequel\ Pro.app
   register: p
   ignore_errors: yes
 
-- name: Install SP
+- name: Install Sequel Pro
   command: "brew cask install sequel-pro --force"
   when: p.rc != 0

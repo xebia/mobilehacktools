@@ -1,10 +1,19 @@
+- name: check if java is installed
+  command: "brew cask list java"
+  register: java_check
+  ignore_errors: yes
+
+- name: install java
+  command: "brew cask install java"
+  when: java_check.stdout > "0"
+
 - homebrew:
     name: autoconf,apktool,bash-completion,dependency-check,dex2jar,git,gpg,python2,python,openssl,wget
     state: present
 
 
 - name: check if Android Studio is installed
-  command: ls /Applications/Android\ Studio.app
+  command: "ls /Applications/Android\ Studio.app"
   register: studio_installed
   ignore_errors: yes
 
@@ -12,21 +21,25 @@
   command: "brew cask install android-studio"
   when: studio_installed.rc != 0
 
-- name: check if Java is installed
-  command: which java
-  register: java_installed
-  ignore_errors: yes
+- name: Ensure presence of bash_profile
+  file: state=touch path={{home_directory}}/.bash_profile
+  when: studio_installed.rc != 0
 
-- name: Install Java
-  command: "brew cask install java"
-  when: java_installed.rc != 0
-  ignore_errors: yes
+- name: add ANDROID_HOME
+  action: lineinfile dest={{ home_directory }}/.bash_profile line="{{ item }}"
+  with_items:
+    - 'export ANDROID_HOME={{ home_directory }}/Library/Android/sdk/'
+    - 'export ANDROID_TOOLS=$ANDROID_HOME/tools/'
+    - 'export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools/'
+    - 'export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS'
+  sudo: no
+  when: studio_installed.rc != 0
 
 - name: check if JD-GUI is installed
-  command: ls /Applications/JD-GUI.app
+  command: "ls /Applications/JD-GUI.app"
   register: jd_gui_installed
   ignore_errors: yes
 
-- name: Install jdgui (cask is too immature)
+- name: Install JD-GUI (cask is too immature)
   command: "brew cask install jd-gui --force"
   when: jd_gui_installed.rc != 0

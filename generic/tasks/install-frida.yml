@@ -5,7 +5,7 @@
 
 - name: check to see if Frida is already installed
   command: "frida -help"
-  ignore_errors: true
+  ignore_errors: yes
   register: frida_is_installed
   changed_when: false
 

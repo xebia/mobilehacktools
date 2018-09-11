@@ -7,7 +7,7 @@
 
 - name: check to see if Qark is already installed
   command: "which qark"
-  ignore_errors: true
+  ignore_errors: yes
   register: qark_is_installed
   changed_when: false
 

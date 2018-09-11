@@ -6,7 +6,7 @@
 
 - name: check to see if SUPER is already installed
   command: "super --help"
-  ignore_errors: true
+  ignore_errors: yes
   register: super_is_installed
   changed_when: false
 
@@ -20,11 +20,17 @@
       path: "{{ super_install_path }}"
       state: directory
 
-  - name: Unzip super downloadable
-    unarchive:
-      src: https://www.dropbox.com/s/cclfxmd0o4wnsg8/super.zip?dl=1
+  - name: Download super files as unarchive is too fast ( with sha256)
+    get_url:
+      timeout: 30
+      url: https://www.dropbox.com/s/cclfxmd0o4wnsg8/super.zip?dl=1
       dest: "{{ super_install_path }}"
-      remote_src: yes
+      checksum: sha256:807e2ef37953f452d178d306fd78f839cfc14c2b24b0fd8723e7613abc0a11d6
+
+  - name: unzip super Unzip
+    unarchive:
+      src: "{{ super_install_path }}/super.zip"
+      dest: "{{ super_install_path }}"
 
   - name: symlink qark script
     file:

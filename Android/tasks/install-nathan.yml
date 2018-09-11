@@ -7,7 +7,7 @@
 
 - name: check to see if nathan is already installed
   command: "which nathan"
-  ignore_errors: true
+  ignore_errors: yes
   register: nathan_is_installed
   changed_when: false
 

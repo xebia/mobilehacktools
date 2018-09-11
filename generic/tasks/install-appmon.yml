@@ -9,7 +9,7 @@
 
 - name: check to see if Appmon is already installed
   command: "appmon -h"
-  ignore_errors: true
+  ignore_errors: yes
   register: appmon_is_installed
   changed_when: false
 
@@ -30,12 +30,6 @@
       src: https://github.com/dpnishant/appmon/archive/master.zip
       dest: "{{ appmon_install_path }}"
       remote_src: yes
-
-  #appmon non-jailbroken ios:
-  - name: install ios-deploy
-    npm:
-      name: ios-deploy
-      global: yes
 
   - name: install dependencies
     command: "cd {{ appmon_install_path }}/appmon-master/ipa_installer && sh build.sh"
@@ -64,5 +58,11 @@
     file:
       path: "{{ binary_install_path }}/appmon"
       mode: a+x
+
+  #appmon non-jailbroken ios:
+  # - name: install ios-deploy
+  #   npm:
+  #     name: ios-deploy
+  #     global: yes
 
   when: appmon_is_installed.rc != 0

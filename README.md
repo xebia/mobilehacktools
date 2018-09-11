@@ -34,8 +34,6 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
   - bash-completion
   - dependency-check
   - doxygen
-  - gettext
-  - gifsicle
   - git
   - go
   - gpg
@@ -47,7 +45,7 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
   - node
   - python2
   - python #python 3
-  - testssl
+  - testssl.sh
   - openssl
   - wget
   - atom
@@ -57,7 +55,6 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
   - dropbox
   - firefox
   - google-chrome
-  - handbrake
   - java
   - owasp-zap
   - sequel-pro
@@ -67,6 +64,8 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
   - Objection
   - MobSF
   - Appmon
+  - zsh //sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 
 
 ### Tools for Android
@@ -74,6 +73,7 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
 - dependency-check
 - dex2jar
 - ideviceinstaller
+- jadx
 - libimobiledevice
 - mcrypt
 - node
@@ -90,10 +90,23 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
 - usbmuxd
 - libimobiledevice
 - qt@4
-- classdump
+- class-dump
 - itms
 - idb
+- java
 
+## Quirks
+As we are still in development of 1.0, there are the following quirks:
+- Some applications might not work the first time as you will first have to start them from your Applications folder, such as: Android Studio (including ADB) & Docker for Mac.
+- iOS has not been tested on the buildserver (only general and android are, so please test them)
+- For iOS you need to run things twice: once to start the installation, while being logged in into the Apple store with your account (actual active state can be achieved by installing any app from the app-store), second time with an active developer account in xCode.
+- Lastly, it could be the case when you are testing this on a separate account, which does not have the correct rights for the brew folders. See Issue #30 reported by [@meetinthemiddle-be](https://github.com/meetinthemiddle-be). When you are on High Sierra you need to do:
+
+```
+chgrp -R admin /usr/local/*
+chmod -R g+w /usr/local/*
+```
+and otherwise you can follow [this fix](https://gitlab.com/alyda/dotfiles/snippets/19654).
 
 ## Contribution
 Does something not work? Create an issue, or even better: create a pull-request!

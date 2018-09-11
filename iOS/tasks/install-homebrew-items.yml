@@ -1,3 +1,12 @@
+- name: check if java is installed
+  command: "brew cask list java"
+  register: java_check
+  ignore_errors: yes
+
+- name: install java
+  command: "brew cask install java"
+  when: java_check.stdout > "0"
+
 - homebrew:
     name: "{{item}}"
     state: present
@@ -11,3 +20,12 @@
     - python
     - openssl
     - wget
+
+- name: check if ifunbox is installed
+  command: "ls /Applications/iFunBox.app"
+  register: ifunbox_check
+  ignore_errors: yes
+
+  - name: install ifunbox
+    command: "brew cask install ifunbox"
+    when: ifunbox_check.rc != 0

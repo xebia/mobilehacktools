@@ -14,7 +14,7 @@
 
 - name: check to see if pip is already installed
   command: "pip --version"
-  ignore_errors: true
+  ignore_errors: yes
   register: pip_is_installed
   changed_when: false
 
