@@ -35,6 +35,10 @@
   sudo: no
   when: studio_installed.rc != 0
 
+- name: source bash_profile again
+  command: "source {{ home_directory }}/.bash_profile"
+  when: studio_installed.rc != 0
+
 - name: check if JD-GUI is installed
   command: "ls /Applications/JD-GUI.app"
   register: jd_gui_installed
