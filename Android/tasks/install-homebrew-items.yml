@@ -36,7 +36,7 @@
   when: studio_installed.rc != 0
 
 - name: source bash_profile again
-  command: "source {{ home_directory }}/.bash_profile"
+  shell: " source {{ home_directory }}/.bash_profile"
   when: studio_installed.rc != 0
 
 - name: check if JD-GUI is installed
