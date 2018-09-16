@@ -6,6 +6,7 @@ This is the mobile security toolchain project. It is loosely based on the MSTG t
 
 ## Current status
 The project is in early beta stage. Feel free to contribute!
+Note that developments are currently slow as the primary focus is now on developing the MSTG.
 
 ## Pre-requisites
 Have a Mac OS X based system (needs 10.13.x) with about 4 GB of RAM and 4 GB of free space. Next, install Docker for Mac on it and then:
@@ -41,6 +42,7 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
   - ideviceinstaller
   - libimobiledevice
   - mcrypt
+  - mitmproxy
   - nmap
   - node
   - python2

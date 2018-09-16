@@ -3,5 +3,6 @@ additional_brew_cask_items:
   - java
   - atom
   - chromedriver
+  - mitmproxy
   - vagrant
   - virtualbox
