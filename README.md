@@ -102,7 +102,7 @@ As we are still in development of 1.0, there are the following quirks:
 - Some applications might not work the first time as you will first have to start them from your Applications folder, such as: Android Studio (including ADB) & Docker for Mac. After that you have to run the runbooks once more. You should have , after 2 runs of the android runbook (e.g. run android runbook, run android studio, run android runbook, a working adb, given that you use .bash_profile)
 - iOS has not been tested on the buildserver (only general and android are, so please test them)
 - For iOS you need to run things twice: once to start the installation, while being logged in into the Apple store with your account (actual active state can be achieved by installing any app from the app-store), second time with an active developer account in xCode.
-- Lastly, it could be the case when you are testing this on a separate account, which does not have the correct rights for the brew folders. See Issue #30(https://github.com/xebia/mobilehacktools/issues/30) reported by [@TheDauntless](https://github.com/TheDauntless). When you are on High Sierra you need to do:
+- Lastly, it could be the case when you are testing this on a separate account, which does not have the correct rights for the brew folders. See Issue [#30](https://github.com/xebia/mobilehacktools/issues/30) reported by [@TheDauntless](https://github.com/TheDauntless). When you are on High Sierra you need to do:
 
 ```
 chgrp -R admin /usr/local/*
