@@ -41,7 +41,7 @@
   #host install finalize:
   - name: pip install everything
     pip:
-      name: argparse frida flask termcolor dataset htmlentities
+      name: argparse flask termcolor dataset htmlentities
 
   - name: copy appmon script files
     copy:
