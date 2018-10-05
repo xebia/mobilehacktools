@@ -21,11 +21,9 @@
     - name: install ninja 2
       command: "pip install ninja2"
 
+
     - name: install drozer
       command: "pip install /tmp/drozer-2.4.4-py2-none-any.whl"
-
-    - name: install twisted
-      command: "pip install twisted"
 
     - name: delete drozer-2.4.4-py2-none-any.whl
       file: state=absent path=/tmp/drozer-2.4.4-py2-none-any.whl
