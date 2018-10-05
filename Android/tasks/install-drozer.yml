@@ -21,7 +21,6 @@
     - name: install ninja 2
       command: "pip install ninja2"
 
-
     - name: install drozer
       command: "pip install /tmp/drozer-2.4.4-py2-none-any.whl"
 
