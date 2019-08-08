@@ -7,10 +7,10 @@
   vars_files:
    - default.config.yml
 
-  roles:
-    - role: geerlingguy.mas
-      when: mas_installed_apps
-      tags: ['mas']
+  # roles:
+  #   - role: geerlingguy.mas
+  #     when: mas_installed_apps
+  #     tags: ['mas']
 
   tasks:
 
