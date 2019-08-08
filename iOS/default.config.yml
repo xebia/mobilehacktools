@@ -1,4 +1,4 @@
 mas_installed_apps:
-  - { id: 497799835, name: "Xcode (9.4.1)" } #ios
+  - { id: 497799835, name: "Xcode (10.3)" } #ios
 
 binary_install_path: /usr/local/bin
