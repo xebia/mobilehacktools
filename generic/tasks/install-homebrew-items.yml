@@ -29,6 +29,7 @@
     - python
     - testssl
     - openssl
+    - radare2
     - wget
 
 - name: check if Docker is item_installed
