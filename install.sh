@@ -13,6 +13,8 @@ if sw_vers | grep -q '10.14'; then
   echo "Detected compatible version of Mac OS X! Proceeding with installation."
 elif sw_vers | grep -q '10.13'; then
   echo "Detected compatible version of Mac OS X! Proceeding with installation."
+elif sw_vers | grep -q '10.15'; then
+  echo "Detected compatible version of Mac OS X! Proceeding with installation."
 else
   echo "Detected incompatible version of Mac OS X! Aborting installation. You need Mac OS X 10.13 or higher"
   exit
