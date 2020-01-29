@@ -7,6 +7,7 @@ This is the mobile security toolchain project. It is loosely based on the MSTG t
 ## Current status
 The project is in early beta stage. Feel free to contribute!
 Note that developments are currently slow as the primary focus is now on developing the MSTG.
+There are quiet a few bugs when running this on Catalina. We hope to resolve them mid-2020 unless a volunteer arrives earlier ;-).
 
 ## Pre-requisites
 Have a Mac OS X based system (needs 10.13.x) with about 4 GB of RAM and 4 GB of free space. Next, install Docker for Mac on it and then:
