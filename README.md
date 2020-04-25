@@ -46,7 +46,6 @@ Brew, pip and Ansible will be installed first, if not available. Then generic, i
   - mitmproxy
   - nmap
   - node
-  - python2
   - python #python 3
   - testssl.sh
   - openssl

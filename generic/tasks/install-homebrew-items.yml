@@ -25,7 +25,6 @@
     - mcrypt
     - nmap
     - node
-    - python2
     - python
     - testssl
     - openssl
