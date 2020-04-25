@@ -15,7 +15,6 @@
     - git
     - go
     - gpg
-    - python2
     - node
     - python
     - openssl

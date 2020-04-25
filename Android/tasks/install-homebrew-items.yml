@@ -8,9 +8,8 @@
   when: java_check.stdout > "0"
 
 - homebrew:
-    name: autoconf,apktool,bash-completion,dependency-check,dex2jar,git,gpg,python2,python,openssl,wget
+    name: autoconf,apktool,bash-completion,dependency-check,dex2jar,git,gpg,python,openssl,wget
     state: present
-
 
 - name: check if Android Studio is installed
   command: "ls /Applications/Android\ Studio.app"
@@ -32,7 +31,7 @@
     - 'export ANDROID_TOOLS=$ANDROID_HOME/tools/'
     - 'export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools/'
     - 'export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS'
-  sudo: no
+  # sudo: no
   when: studio_installed.rc != 0
 
 - name: source bash_profile again
